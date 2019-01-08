@@ -3,7 +3,7 @@ const login = require('./login');
 
 function TickTick() {
   this.request = rp.defaults({
-    jar: true,
+    jar: true, // In order to keep authentication cookie ('t') inside jar
   });
   this.baseUri = 'https://api.ticktick.com/api/v2';
 }

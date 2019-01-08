@@ -12,19 +12,54 @@ class UnavailableProviderError extends Error {
   }
 }
 
-const loginEmail = async function loginEmail(/* credentials */) {
-  throw new UnavailableProviderError('Email');
+class FailedLoginError extends Error {
+  constructor(message, errorId, errorCode, errorMessage) {
+    super(message);
+    this.errorId = errorId;
+    this.errorCode = errorCode;
+    this.errorMessage = errorMessage;
+  }
+}
+
+const loginEmail = async function _loginEmail(credentials) {
+  const options = {
+    method: 'POST',
+    uri: `${this.baseUri}/user/signon`,
+    qs: {
+      wc: true,
+      remember: true,
+    },
+    json: true,
+    body: credentials,
+  };
+
+  try {
+    await this.request(options);
+  } catch (err) {
+    const { body } = err.response;
+    switch (body.errorCode) {
+      case 'username_not_exist':
+        throw new FailedLoginError(`The username "${credentials.username}" does not exist`,
+          body.errorId, body.errorCode, body.errorMessage);
+      case 'username_password_not_match':
+        throw new FailedLoginError(`The password provided for the username "${credentials.username}"`
+          + ' is incorrect', body.errorId, body.errorCode, body.errorMessage);
+      default:
+        throw new FailedLoginError('Error on login', body.errorId, body.errorCode,
+          body.errorMessage);
+    }
+  }
 };
 
-const loginFacebook = async function loginFacebook(/* credentials */) {
+const loginFacebook = async function _loginFacebook(/* credentials */) {
   throw new UnavailableProviderError('Facebook');
 };
 
-const loginGoogle = async function loginGoogle(/* credentials */) {
+const loginGoogle = async function _loginGoogle(/* credentials */) {
   throw new UnavailableProviderError('Google');
 };
 
-const loginTwitter = async function loginTwitter(/* credentials */) {
+const loginTwitter = async function _loginTwitter(/* credentials */) {
   throw new UnavailableProviderError('Twitter');
 };
 
@@ -36,5 +71,6 @@ module.exports = {
   errors: {
     UnavailableProviderError,
     NoProviderSelectedError,
+    FailedLoginError,
   },
 };

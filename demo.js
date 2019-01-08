@@ -1,3 +1,8 @@
 const tickTick = require('./index');
 
-console.log(tickTick);
+tickTick.login({
+  email: {
+    username: 'a@b.com',
+    password: 'abc',
+  },
+});
