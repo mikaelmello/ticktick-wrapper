@@ -1,8 +1,9 @@
-const tickTick = require('./index');
+require('dotenv').config();
+const ticktick = require('./index');
 
-tickTick.login({
+ticktick.login({
   email: {
-    username: 'a@b.com',
-    password: 'abc',
+    username: process.env.EMAIL_LOGIN_USERNAME,
+    password: process.env.EMAIL_LOGIN_PASSWORD,
   },
 });
