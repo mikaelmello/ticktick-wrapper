@@ -1,11 +1,18 @@
-class NoProviderSelectedError extends Error {
+class NotLoggedInError extends Error {
   constructor() {
-    super('The "ptions" parameter does not contain valid data for any provider');
-    this.name = 'NoProviderSelectedError';
+    super('A login is necessary before performing any actions');
+    this.name = 'NotLoggedInError';
   }
 }
 
-class UnavailableProviderError extends Error {
+class NoLoginProviderSelectedError extends Error {
+  constructor() {
+    super('The "ptions" parameter does not contain valid data for any provider');
+    this.name = 'NoLoginProviderSelectedError';
+  }
+}
+
+class UnavailableLoginProviderError extends Error {
   constructor(provider) {
     super(`The handler for ${provider} login is not implemented`);
     this.name = 'UnavailableProviderError';
@@ -21,6 +28,13 @@ class FailedLoginError extends Error {
   }
 }
 
+const setUserInfo = function _setUserInfo(userInfo) {
+  this.user.username = userInfo.username;
+  this.user.inboxId = userInfo.inboxId;
+  this.user.isPro = userInfo.pro;
+  this.user.id = userInfo.userId;
+};
+
 const loginEmail = async function _loginEmail(credentials) {
   const options = {
     method: 'POST',
@@ -34,7 +48,8 @@ const loginEmail = async function _loginEmail(credentials) {
   };
 
   try {
-    await this.request(options);
+    const userInfo = await this.request(options);
+    setUserInfo.call(this, userInfo);
   } catch (err) {
     const { body } = err.response;
     switch (body.errorCode) {
@@ -52,25 +67,26 @@ const loginEmail = async function _loginEmail(credentials) {
 };
 
 const loginFacebook = async function _loginFacebook(/* credentials */) {
-  throw new UnavailableProviderError('Facebook');
+  throw new UnavailableLoginProviderError('Facebook');
 };
 
 const loginGoogle = async function _loginGoogle(/* credentials */) {
-  throw new UnavailableProviderError('Google');
+  throw new UnavailableLoginProviderError('Google');
 };
 
 const loginTwitter = async function _loginTwitter(/* credentials */) {
-  throw new UnavailableProviderError('Twitter');
+  throw new UnavailableLoginProviderError('Twitter');
 };
 
 module.exports = {
-  email: loginEmail,
-  facebook: loginFacebook,
-  google: loginGoogle,
-  twitter: loginTwitter,
+  loginEmail,
+  loginFacebook,
+  loginGoogle,
+  loginTwitter,
   errors: {
-    UnavailableProviderError,
-    NoProviderSelectedError,
+    NotLoggedInError,
+    UnavailableLoginProviderError,
+    NoLoginProviderSelectedError,
     FailedLoginError,
   },
 };

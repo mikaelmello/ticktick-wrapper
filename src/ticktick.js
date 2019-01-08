@@ -1,35 +1,50 @@
 const rp = require('request-promise');
-const login = require('./login');
+const auth = require('./auth');
 
 function TickTick() {
+  this.cookieJar = rp.jar();
   this.request = rp.defaults({
-    jar: true, // In order to keep authentication cookie ('t') inside jar
+    jar: this.cookieJar, // In order to keep authentication cookie ('t') inside jar
   });
   this.baseUri = 'https://api.ticktick.com/api/v2';
+
+  this.user = {};
 }
 
 TickTick.prototype.login = async function _login(options) {
   if (!options) {
-    throw new login.errors.NoProviderSelectedError();
+    throw new auth.errors.NoLoginProviderSelectedError();
   }
 
   if (options.email) {
-    return login.email.call(this, options.email);
+    return auth.loginEmail.call(this, options.email);
   }
 
   if (options.google) {
-    return login.google.call(this, options.google);
+    return auth.loginGoogle.call(this, options.google);
   }
 
   if (options.facebook) {
-    return login.facebook.call(this, options.facebook);
+    return auth.loginFacebook.call(this, options.facebook);
   }
 
   if (options.twitter) {
-    return login.twitter.call(this, options.twitter);
+    return auth.loginTwitter.call(this, options.twitter);
   }
 
-  throw new login.errors.NoProviderSelectedError();
+  throw new auth.errors.NoLoginProviderSelectedError();
+};
+
+TickTick.prototype._authMiddleware = function _authMiddleware() {
+  const cookies = this.cookieJar.getCookies(this.baseUri);
+
+  for (let i = 0; i < cookies.length; i += 1) {
+    if (cookies[i].key === 't' && cookies[i].expires > Date.now()) {
+      return;
+    }
+  }
+
+  throw auth.errors.NotLoggedInError();
 };
 
 module.exports = new TickTick();
