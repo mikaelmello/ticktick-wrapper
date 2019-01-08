@@ -10,7 +10,7 @@ function TickTick() {
 
 TickTick.prototype.login = async function _login(options) {
   if (!options) {
-    throw new Error('No options provided for login');
+    throw new login.errors.NoProviderSelectedError();
   }
 
   if (options.email) {
@@ -29,7 +29,7 @@ TickTick.prototype.login = async function _login(options) {
     return login.twitter.call(this, options.twitter);
   }
 
-  throw new Error('No options provided for login');
+  throw new login.errors.NoProviderSelectedError();
 };
 
 module.exports = new TickTick();
