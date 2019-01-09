@@ -1,14 +1,15 @@
 const ObjectID = require('bson-objectid');
 const conn = require('./connection');
+const Task = require('./task');
 
 function List(options) {
-  this.id = options.id ? ObjectID(options.id) : undefined;
+  this.id = ObjectID(options.id);
   this.name = options.name;
-  this.isOwner = options.isOwner;
+  this.isOwner = !(options.isOwner === false);
   this.color = options.color;
   this.closed = options.closed || false;
   this.muted = options.muted || false;
-  this.groupId = options.groupId ? ObjectID(options.id) : undefined;
+  this.groupId = options.groupId && ObjectID(options.id);
 }
 
 List.prototype._getAll = async function _getAll(/* filter */) {
@@ -19,6 +20,11 @@ List.prototype._getAll = async function _getAll(/* filter */) {
 
   const rawLists = await conn.request(options);
   return rawLists.map(list => new List(list));
+};
+
+List.prototype.addSimpleTask = async function _addSimpleTask(title, content) {
+  const task = new Task({ title, content, listId: this.id });
+  task._add();
 };
 
 module.exports = List;

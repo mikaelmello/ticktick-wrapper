@@ -11,7 +11,7 @@ const main = async () => {
     },
   });
 
-  await ticktick.getLists();
+  await ticktick.addSimpleTask('oi', '2');
 };
 
 main();
