@@ -1,3 +1,5 @@
+const conn = require('./connection');
+
 class NotLoggedInError extends Error {
   constructor() {
     super('A login is necessary before performing any actions');
@@ -31,7 +33,7 @@ class FailedLoginError extends Error {
 const loginEmail = async function _loginEmail(credentials) {
   const options = {
     method: 'POST',
-    uri: `${this.baseUri}/user/signon`,
+    uri: `${conn.baseUri}/user/signon`,
     qs: {
       wc: true,
       remember: true,
@@ -41,7 +43,7 @@ const loginEmail = async function _loginEmail(credentials) {
   };
 
   try {
-    return this.request(options);
+    return conn.request(options);
   } catch (err) {
     const { body } = err.response;
     switch (body.errorCode) {

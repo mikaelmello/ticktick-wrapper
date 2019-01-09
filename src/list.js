@@ -1,6 +1,7 @@
 const ObjectID = require('bson-objectid');
+const conn = require('./connection');
 
-function Project(options) {
+function List(options) {
   this.id = options.id ? ObjectID(options.id) : undefined;
   this.name = options.name;
   this.isOwner = options.isOwner;
@@ -10,9 +11,19 @@ function Project(options) {
   this.groupId = options.groupId ? ObjectID(options.id) : undefined;
 }
 
-module.exports = Project;
+List.prototype._getAll = async function _getAll(/* filter */) {
+  const options = {
+    uri: `${conn.baseUri}/projects`,
+    json: true,
+  };
 
-// Project structure from api response
+  const rawLists = await conn.request(options);
+  return rawLists.map(list => new List(list));
+};
+
+module.exports = List;
+
+// List structure from api response
 // {
 //   id: '5c342818e4b04a7154bfea3a',
 //   name: 'Any',
