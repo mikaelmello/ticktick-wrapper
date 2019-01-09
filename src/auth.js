@@ -28,13 +28,6 @@ class FailedLoginError extends Error {
   }
 }
 
-const setUserInfo = function _setUserInfo(userInfo) {
-  this.user.username = userInfo.username;
-  this.user.inboxId = userInfo.inboxId;
-  this.user.isPro = userInfo.pro;
-  this.user.id = userInfo.userId;
-};
-
 const loginEmail = async function _loginEmail(credentials) {
   const options = {
     method: 'POST',
@@ -48,8 +41,7 @@ const loginEmail = async function _loginEmail(credentials) {
   };
 
   try {
-    const userInfo = await this.request(options);
-    setUserInfo.call(this, userInfo);
+    return this.request(options);
   } catch (err) {
     const { body } = err.response;
     switch (body.errorCode) {
