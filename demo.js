@@ -11,7 +11,7 @@ const main = async () => {
     },
   });
 
-  console.log(ticktick);
+  await ticktick.getLists();
 };
 
 main();

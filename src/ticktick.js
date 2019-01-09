@@ -1,5 +1,6 @@
 const rp = require('request-promise');
 const auth = require('./auth');
+const Project = require('./models/project');
 
 function TickTick() {
   this.cookieJar = rp.jar();
@@ -48,6 +49,17 @@ TickTick.prototype._assertLogin = function _assertLogin() {
   }
 
   throw auth.errors.NotLoggedInError();
+};
+
+TickTick.prototype.getLists = async function _getLists() {
+  this._assertLogin();
+  const options = {
+    uri: `${this.baseUri}/projects  `,
+    json: true,
+  };
+
+  const rawLists = await this.request(options);
+  return rawLists.map(list => new Project(list));
 };
 
 TickTick.prototype.getWhatever = async function _getWhatever() {

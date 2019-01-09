@@ -51,3 +51,6 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+
+app-source.js
+saida.json
