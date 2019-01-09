@@ -3,16 +3,16 @@ const conn = require('./connection');
 const Task = require('./task');
 
 function List(options) {
-  this.id = ObjectID(options.id);
+  this.id = options.id || ObjectID();
   this.name = options.name;
   this.isOwner = !(options.isOwner === false);
   this.color = options.color;
   this.closed = options.closed || false;
   this.muted = options.muted || false;
-  this.groupId = options.groupId && ObjectID(options.id);
+  this.groupId = options.groupId;
 }
 
-List.prototype._getAll = async function _getAll(/* filter */) {
+List._getAll = async function _getAll(/* filter */) {
   const options = {
     uri: `${conn.baseUri}/projects`,
     json: true,

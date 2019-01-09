@@ -2,7 +2,7 @@ const ObjectID = require('bson-objectid');
 const conn = require('./connection');
 
 function Task(options) {
-  this.id = ObjectID(options.id);
+  this.id = options.id || ObjectID();
   this.title = options.title;
   this.content = options.content;
   this.startDate = options.startDate && new Date(options.startDate);

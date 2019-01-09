@@ -11,7 +11,7 @@ const main = async () => {
     },
   });
 
-  await ticktick.addSimpleTask('oi', '2');
+  await ticktick.Inbox.addSimpleTask('sdasdasdoi', '2');
 };
 
 main();

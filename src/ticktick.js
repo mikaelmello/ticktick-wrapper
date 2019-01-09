@@ -32,6 +32,10 @@ TickTick.prototype._setUserInfo = function _setUserInfo(userInfo) {
   this.user.inboxId = userInfo.inboxId;
   this.user.isPro = userInfo.pro;
   this.user.id = userInfo.userId;
+  this.Inbox = new List({
+    id: userInfo.inboxId,
+    name: 'Inbox',
+  });
 };
 
 TickTick.prototype._assertLogin = function _assertLogin() {
@@ -49,6 +53,23 @@ TickTick.prototype._assertLogin = function _assertLogin() {
 TickTick.prototype.getLists = async function _getLists() {
   this._assertLogin();
   return List._getAll();
+};
+
+TickTick.prototype.getWhatever = async function _getWhatever() {
+  this._assertLogin();
+  const options = {
+    // uri: `${conn.baseUri}/task/?projectId=5c0eee65e4b00d057d2e5499`,
+    uri: `${conn.baseUri}/project/${this.user.inboxId}/tasks`,
+    json: true,
+  };
+
+  try {
+    const userInfo = await conn.request(options);
+    console.log(userInfo);
+  } catch (err) {
+    const { body } = err.response;
+    console.log(body);
+  }
 };
 
 const tickTick = new TickTick();
