@@ -57,23 +57,6 @@ TickTick.prototype.getLists = async function _getLists() {
   return List._getAll();
 };
 
-TickTick.prototype.getWhatever = async function _getWhatever() {
-  this._assertLogin();
-  const options = {
-    // uri: `${conn.baseUri}/task/?projectId=5c0eee65e4b00d057d2e5499`,
-    uri: `${conn.baseUri}/project/${this.user.inboxId}/tasks`,
-    json: true,
-  };
-
-  try {
-    const userInfo = await conn.request(options);
-    console.log(userInfo);
-  } catch (err) {
-    const { body } = err.response;
-    console.log(body);
-  }
-};
-
 TickTick.prototype.createReminder = function _createReminder(quantity, unit) {
   return Reminder._create(quantity, unit);
 };

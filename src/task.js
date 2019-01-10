@@ -79,7 +79,6 @@ Task.prototype._add = async function _add() {
     body: this,
   };
 
-  console.log(options.body);
   return conn.request(options);
 };
 

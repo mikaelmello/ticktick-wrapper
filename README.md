@@ -57,15 +57,27 @@ Object that contains relevant information about the authenticated user
 - `user.username`: String - Username of the user
 - `user.isPro`: Bool - Whether the user has a pro account
 
+#### `TickTick.createReminder(quantity, unit)`
+
+Time before start date to have a reminder of the task.
+
+- `quantity`: Number - Quantity of \<unit\> to set the reminder before start date
+- `unit`: String - Unit of quantity. Allowed values are:
+  - `'seconds', 'minutes', 'hours', 'days'`
+  - `'s', 'm', 'h', 'd'`
+
 #### `TickTick.Inbox`
 
 [`List`](#list) object that references the inbox of your account.
 
 ### `List`
 
-#### `List.addSimpleTask(title, content)`
+#### `List.addSimpleTask(title, content, date, isAllDay, reminder)`
 
-Creates a task that has only a title and a description (content) and instantly adds it in your account, inside the list referenced by the object in which you are calling the method.
+Creates a task that has only a title and a description (content) and instantly adds it in your account, inside the list referenced by the object in which you are calling the method. It is also possible to add a date and reminders for it.
 
 - `title`: String - Title of the task
 - `content`: String - Description of the task
+- `date`: Date - Date to set in the task
+- `isAllDay`: Boolean - Whether the task has a specific time in the day
+- `reminders`: [[Reminder](#reminder)] - Reminders to set in the task, create them using [`TickTick.createReminder`](#ticktickcreatereminderquantityunit)
