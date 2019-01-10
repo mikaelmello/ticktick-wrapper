@@ -22,8 +22,15 @@ List._getAll = async function _getAll(/* filter */) {
   return rawLists.map(list => new List(list));
 };
 
-List.prototype.addSimpleTask = async function _addSimpleTask(title, content) {
-  const task = new Task({ title, content, listId: this.id });
+List.prototype.addSimpleTask = async function _addST(title, content, date, isAllDay, reminders) {
+  const task = new Task({
+    title,
+    content,
+    listId: this.id,
+    startDate: date,
+    isAllDay,
+    reminders,
+  });
   task._add();
 };
 

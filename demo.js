@@ -10,8 +10,7 @@ const main = async () => {
       password: process.env.EMAIL_LOGIN_PASSWORD,
     },
   });
-
-  await ticktick.Inbox.addSimpleTask('sdasdasdoi', '2');
+  await ticktick.Inbox.addSimpleTask('Wow', '2', (new Date()), false, [ticktick.createReminder()]);
 };
 
 main();

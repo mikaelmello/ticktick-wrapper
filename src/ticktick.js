@@ -1,6 +1,7 @@
 const conn = require('./connection');
 const auth = require('./auth');
 const List = require('./list');
+const Reminder = require('./reminder');
 
 function TickTick() {
   this.user = {};
@@ -71,6 +72,10 @@ TickTick.prototype.getWhatever = async function _getWhatever() {
     const { body } = err.response;
     console.log(body);
   }
+};
+
+TickTick.prototype.createReminder = function _createReminder(quantity, unit) {
+  return Reminder._create(quantity, unit);
 };
 
 const tickTick = new TickTick();

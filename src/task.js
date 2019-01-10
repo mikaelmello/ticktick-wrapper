@@ -1,20 +1,43 @@
 const ObjectID = require('bson-objectid');
 const conn = require('./connection');
 
+class InvalidDateFormatError extends Error {
+  constructor(date) {
+    super(`The provided date "${date}" is invalid`);
+  }
+}
+
+function formatDate(date) {
+  if (date === undefined) {
+    return date;
+  }
+
+  let dateString = date;
+  if (date instanceof Date) {
+    dateString = date.toISOString();
+  } else if (typeof dateString !== 'string') {
+    throw new InvalidDateFormatError();
+  }
+
+  return dateString.replace('Z', '+0000');
+}
+
 function Task(options) {
   this.id = options.id || ObjectID();
   this.title = options.title;
   this.content = options.content;
-  this.startDate = options.startDate && new Date(options.startDate);
-  this.dueDate = options.dueDate && new Date(options.dueDate);
+  this.startDate = formatDate(options.startDate);
+  this.dueDate = formatDate(options.dueDate);
   this.timeZone = options.timeZone;
-  this.isAllDay = options.isAllDay;
+  this.isAllDay = options.isAllDay || false;
   this.priority = options.priority || Task.Priority.NONE;
   this.status = options.status || Task.Status.TODO;
   this.items = options.items || []; // && options.items.map(item => new Item(item));
+  this.reminder = options.reminder;
+  this.reminders = options.reminders || [];
   this.progress = options.progress;
-  this.modifiedTime = options.modifiedTime ? new Date(options.modifiedTime) : new Date();
-  this.createdTime = options.createdTime ? new Date(options.createdTime) : new Date();
+  this.modifiedTime = formatDate(options.modifiedTime);
+  this.createdTime = formatDate(options.createdTime);
   this.kind = options.kind || 'TEXT'; // defaults to text unless told otherwise
   this.creator = options.creator; // || loggedinUserId
   this.projectId = options.projectId || options.listId; // || inbox
@@ -55,6 +78,8 @@ Task.prototype._add = async function _add() {
     json: true,
     body: this,
   };
+
+  console.log(options.body);
   return conn.request(options);
 };
 
