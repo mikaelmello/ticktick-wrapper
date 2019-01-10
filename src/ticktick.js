@@ -28,12 +28,13 @@ TickTick.prototype.login = async function _login(options) {
 };
 
 TickTick.prototype._setUserInfo = function _setUserInfo(userInfo) {
+  this.user._inboxId = userInfo.inboxId;
+
   this.user.username = userInfo.username;
-  this.user.inboxId = userInfo.inboxId;
   this.user.isPro = userInfo.pro;
   this.user.id = userInfo.userId;
   this.Inbox = new List({
-    id: userInfo.inboxId,
+    id: userInfo._inboxId,
     name: 'Inbox',
   });
 };
