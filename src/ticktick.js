@@ -1,4 +1,5 @@
 const conn = require('./connection');
+const utils = require('./utils');
 const auth = require('./auth');
 const List = require('./list');
 const Reminder = require('./reminder');
@@ -6,6 +7,10 @@ const Reminder = require('./reminder');
 function TickTick() {
   conn.addMiddleware(auth.assertLogin);
   this.user = {};
+
+  this._listsCache = {};
+  this._listsCacheLastUpdate = undefined;
+  this._cacheMaxAgeInMinutes = 10;
 }
 
 TickTick.prototype.login = async function _login(options) {
@@ -45,9 +50,48 @@ TickTick.prototype._setUserInfo = function _setUserInfo(userInfo) {
   });
 };
 
-TickTick.prototype.getLists = async function _getLists() {
-  return List._getAll();
+TickTick.prototype.changeCacheMaxAge = function _changeCacheMaxAge(minutes) {
+  this._cacheMaxAgeInMinutes = minutes;
 };
+
+/**
+ * List-related methods
+ */
+
+TickTick.prototype._checkListsCache = async function _checkListsCache() {
+  if (!utils.validateCache(this._listsCacheLastUpdate, this._cacheMaxAgeInMinutes)) {
+    const listsArray = await List._getAll();
+    for (let i = 0; i < listsArray.length; i += 1) {
+      const current = listsArray[i];
+      this._listsCache[current.name] = current;
+    }
+
+    this._listsCacheLastUpdate = new Date();
+  }
+};
+
+TickTick.prototype.getLists = async function _getLists(forceRefresh) {
+  if (forceRefresh === true) {
+    this._listsCacheLastUpdate = undefined;
+  }
+
+  await this._checkListsCache();
+  return this._listsCache;
+};
+
+TickTick.prototype.getListByName = async function _getListByName(name, forceRefresh) {
+  if (forceRefresh === true) {
+    this._listsCacheLastUpdate = undefined;
+  }
+
+  await this._checkListsCache();
+  return this._listsCache[name];
+};
+
+
+/**
+ * Reminder-related properties
+ */
 
 TickTick.prototype.createReminder = function _createReminder(quantity, unit) {
   return Reminder._create(quantity, unit);
