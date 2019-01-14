@@ -30,6 +30,18 @@ class FailedLoginError extends Error {
   }
 }
 
+const assertLogin = function _assertLoginMiddleware() {
+  const cookies = conn.cookieJar.getCookies(conn.baseUri);
+
+  for (let i = 0; i < cookies.length; i += 1) {
+    if (cookies[i].key === 't' && cookies[i].expires > Date.now()) {
+      return;
+    }
+  }
+
+  throw new NotLoggedInError();
+};
+
 const loginEmail = async function _loginEmail(credentials) {
   const options = {
     method: 'POST',
@@ -43,7 +55,8 @@ const loginEmail = async function _loginEmail(credentials) {
   };
 
   try {
-    return conn.request(options);
+    const userInfo = conn.request(options);
+    return userInfo;
   } catch (err) {
     const { body } = err.response;
     switch (body.errorCode) {
@@ -77,6 +90,7 @@ module.exports = {
   loginFacebook,
   loginGoogle,
   loginTwitter,
+  assertLogin,
   errors: {
     NotLoggedInError,
     UnavailableLoginProviderError,
