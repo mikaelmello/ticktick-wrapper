@@ -82,6 +82,7 @@ Task.Kind = {
 
 /**
  * Get all tasks that are uncompleted.
+ * @private
  * @returns {Task[]} Tasks with status equal to TODO
  */
 Task.prototype._getAllUncompleted = async function _getAll(/* filter */) {
@@ -99,10 +100,11 @@ Task.prototype._getAllUncompleted = async function _getAll(/* filter */) {
 };
 
 /**
- * Saves task in TickTIck by sending a request to TickTick's API
+ * Saves task in TickTick by sending a request to TickTick's API
+ * @private
  * @returns Request response
  */
-Task.prototype._add = async function _add() {
+Task.prototype.save = async function _save() {
   const options = {
     method: 'POST',
     uri: `${conn.baseUri}/task`,

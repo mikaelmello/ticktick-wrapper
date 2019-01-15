@@ -1,5 +1,13 @@
+/** @module Authentication */
+
 const conn = require('./connection');
 
+/**
+ * Error thrown when the client tries to call any function that requires authentication
+ * before authenticating.
+ * @class
+ * @ignore
+ */
 class NotLoggedInError extends Error {
   constructor() {
     super('A login is necessary before performing any actions');
@@ -7,6 +15,12 @@ class NotLoggedInError extends Error {
   }
 }
 
+/**
+ * Error thrown when the parameters in a call to {@link TickTick#login} do not match any
+ * valid provider.
+ * @class
+ * @ignore
+ */
 class NoLoginProviderSelectedError extends Error {
   constructor() {
     super('The "ptions" parameter does not contain valid data for any provider');
@@ -14,6 +28,12 @@ class NoLoginProviderSelectedError extends Error {
   }
 }
 
+/**
+ * Error thrown when the client tries to perform a login using a provider that is not yet
+ * supported.
+ * @class
+ * @ignore
+ */
 class UnavailableLoginProviderError extends Error {
   constructor(provider) {
     super(`The handler for ${provider} login is not implemented`);
@@ -21,6 +41,15 @@ class UnavailableLoginProviderError extends Error {
   }
 }
 
+/**
+ * Error thrown when a login request fails
+ * @class
+ * @ignore
+ * @param {string} message - Error message
+ * @param {string} errorId - Error id returned by the failed request
+ * @param {string} errorCode - Error code returned by the failed request
+ * @param {string} errorMessage - Error message returned by the failed request
+ */
 class FailedLoginError extends Error {
   constructor(message, errorId, errorCode, errorMessage) {
     super(message);
@@ -30,6 +59,12 @@ class FailedLoginError extends Error {
   }
 }
 
+/**
+ * Middleware to be executed before each request that ensures the client has already
+ * authenticated before calling any methods
+ * @private
+ * @throws {NotLoggedInError} If the client has not authenticated
+ */
 const assertLogin = function _assertLoginMiddleware() {
   const cookies = conn.cookieJar.getCookies(conn.baseUri);
 
@@ -42,6 +77,14 @@ const assertLogin = function _assertLoginMiddleware() {
   throw new NotLoggedInError();
 };
 
+/**
+ * Executes a login operation via e-mail, using an e-mail and a password.
+ * @private
+ * @param {Object} credentials - Credentials used on login
+ * @param {string} credentials.username - E-mail of the account
+ * @param {string} credentials.password - Password of the account
+ * @throws {FailedLoginError} If the request fails
+ */
 const loginEmail = async function _loginEmail(credentials) {
   const options = {
     method: 'POST',
@@ -73,14 +116,29 @@ const loginEmail = async function _loginEmail(credentials) {
   }
 };
 
+/**
+ * Not implemented
+ * @private
+ * @throws {UnavailableLoginProviderError}
+ */
 const loginFacebook = async function _loginFacebook(/* credentials */) {
   throw new UnavailableLoginProviderError('Facebook');
 };
 
+/**
+ * Not implemented
+ * @private
+ * @throws {UnavailableLoginProviderError}
+ */
 const loginGoogle = async function _loginGoogle(/* credentials */) {
   throw new UnavailableLoginProviderError('Google');
 };
 
+/**
+ * Not implemented
+ * @private
+ * @throws {UnavailableLoginProviderError}
+ */
 const loginTwitter = async function _loginTwitter(/* credentials */) {
   throw new UnavailableLoginProviderError('Twitter');
 };

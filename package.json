@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint index.js src --color",
-    "docs": "rm -rf docs && jsdoc index.js src -d docs",
+    "docs": "rm -rf docs && jsdoc -c .jsdocrc",
     "docs-private": "rm -rf docs && jsdoc index.js src --private -d docs",
     "patch-check-files": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
     "patch-release": "npm version patch -m \"release: v%s\" && npm publish && git push --follow-tags"
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/mikaelmello/ticktick-wrapper#readme",
   "dependencies": {
+    "boxy-jsdoc-template": "^2.0.2",
     "bson-objectid": "^1.2.4",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"

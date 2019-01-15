@@ -1,13 +1,15 @@
+/** @module TickTick */
+
 const conn = require('./connection');
 const utils = require('./utils');
 const auth = require('./auth');
 const List = require('./list');
+const Task = require('./task');
 const Reminder = require('./reminder');
 
 /**
  * Wrapper's main class
  * @class
- * @constructor
  */
 function TickTick() {
   conn.addMiddleware(auth.assertLogin);
@@ -133,7 +135,7 @@ TickTick.prototype._checkListsCache = async function _checkListsCache() {
 /**
  * Gets a map of all lists available to the authenticated user
  * @param {boolean=} forceRefresh - Whether to force a refresh of the cached lists
- * @return {Object.<string, List>} - Object with cached user lists where the key is
+ * @returns {Object.<string, List>} Object with cached user lists where the key is
  * the name of the list
  */
 TickTick.prototype.getLists = async function _getLists(forceRefresh) {
@@ -149,7 +151,7 @@ TickTick.prototype.getLists = async function _getLists(forceRefresh) {
  * Gets a list with a specific name
  * @param {string} name - The name of the list
  * @param {boolean=} forceRefresh - Whether to force a refresh of the cached lists
- * @return {List|undefined}} - {@link List} object or undefined if a list with the
+ * @returns {List|undefined}} {@link List} object or undefined if a list with the
  * provided name does not exist
  */
 TickTick.prototype.getListByName = async function _getListByName(name, forceRefresh) {
@@ -172,11 +174,26 @@ TickTick.prototype.getListByName = async function _getListByName(name, forceRefr
   * If quantity equals to 0, an instant reminder will be returned
   * @param {Number} quantity - Quantity of unit.
   * @param {Reminder.TimeUnit} unit - Unit of time
-  * @return {Reminder} - Reminder object that can be used to create a {@link Task}.
+  * @returns {Reminder} Reminder object that can be used to create a {@link Task}.
   */
 TickTick.prototype.createReminder = function _createReminder(quantity, unit) {
-  return Reminder._create(quantity, unit);
+  return new Reminder(quantity, unit);
 };
+
+/**
+ * Access to List model
+ */
+TickTick.prototype.List = List;
+
+/**
+ * Access to Task model
+ */
+TickTick.prototype.Task = Task;
+
+/**
+ * Access to Reminder model
+ */
+TickTick.prototype.Reminder = Reminder;
 
 const tickTick = new TickTick();
 module.exports = tickTick;
