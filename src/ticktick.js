@@ -133,7 +133,7 @@ TickTick.prototype._checkListsCache = async function _checkListsCache() {
 /**
  * Gets a map of all lists available to the authenticated user
  * @param {boolean=} forceRefresh - Whether to force a refresh of the cached lists
- * @return {Object.<string, List>} Object with cached user lists where the key is
+ * @return {Object.<string, List>} - Object with cached user lists where the key is
  * the name of the list
  */
 TickTick.prototype.getLists = async function _getLists(forceRefresh) {
@@ -172,7 +172,7 @@ TickTick.prototype.getListByName = async function _getListByName(name, forceRefr
   * If quantity equals to 0, an instant reminder will be returned
   * @param {Number} quantity - Quantity of unit.
   * @param {Reminder.TimeUnit} unit - Unit of time
-  * @return {Reminder} Reminder object that can be used to create a {@link Task}.
+  * @return {Reminder} - Reminder object that can be used to create a {@link Task}.
   */
 TickTick.prototype.createReminder = function _createReminder(quantity, unit) {
   return Reminder._create(quantity, unit);

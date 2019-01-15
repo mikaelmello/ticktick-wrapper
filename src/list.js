@@ -2,6 +2,12 @@ const ObjectID = require('bson-objectid');
 const conn = require('./connection');
 const Task = require('./task');
 
+/**
+ * List model
+ * @param {Object} properties - Properties of the list
+ * @constructor
+ * @class
+ */
 function List(properties) {
   this.id = properties.id || ObjectID();
   this.name = properties.name;
