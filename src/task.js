@@ -1,33 +1,34 @@
 const ObjectID = require('bson-objectid');
 const conn = require('./connection');
+const utils = require('./utils');
 
-class InvalidDateFormatError extends Error {
-  constructor(date) {
-    super(`The provided date "${date}" is invalid`);
-  }
-}
-
-function formatDate(date) {
-  if (date === undefined) {
-    return date;
-  }
-
-  let dateString = date;
-  if (date instanceof Date) {
-    dateString = date.toISOString();
-  } else if (typeof dateString !== 'string') {
-    throw new InvalidDateFormatError();
-  }
-
-  return dateString.replace('Z', '+0000');
-}
-
+/**
+ * Task model
+ * @class
+ * @param {Object} properties - Properties of the {@link Task}
+ * @param {string} [properties.id=ObjectID()] - Object ID of the tasks, only defined when this is an
+ * instantiation of a pre-existing tasks. On new taskss this must be empty in order
+ * to generate a new ObjectID
+ * @param {string} properties.title - Title of the task
+ * @param {string=} properties.content - Description of the task
+ * @param {Date|string} [properties.startDate=] - When the task is set to start. If it is a string
+ * it must have the format YYYY-MM-DDTHH:mm:ss.sss+0000 or YYYY-MM-DDTHH:mm:ss.sssZ
+ * @param {Date|string} [properties.dueDate=] - When the task is set to end. If it is a string
+ * it must have the format YYYY-MM-DDTHH:mm:ss.sss+0000 or YYYY-MM-DDTHH:mm:ss.sssZ
+ * @param {string=} properties.timeZone - Timezone used for the triggering of the task reminders
+ * and assigned date. If empty it will be set to the account's default.
+ * @param {boolean} [properties.isAllDay=False] - Whether the task is set to take the entire day
+ * @param {Task.Priority} [properties.priority=Task.Priority.NONE] - Priority of the task
+ * @param {Task.Status} [properties.status=Task.Status.TODO] - Status of the task
+ * @param {Object[]} [properties.items=[]] - Items of the task
+ * @param {Reminder=} properties.reminder - Closest reminder
+ * @param {Reminder[]} [properties.reminders=[]] - Reminders of the task
 function Task(properties) {
   this.id = properties.id || ObjectID();
   this.title = properties.title;
   this.content = properties.content;
-  this.startDate = formatDate(properties.startDate);
-  this.dueDate = formatDate(properties.dueDate);
+  this.startDate = utils.formatDate(properties.startDate);
+  this.dueDate = utils.formatDate(properties.dueDate);
   this.timeZone = properties.timeZone;
   this.isAllDay = properties.isAllDay || false;
   this.priority = properties.priority || Task.Priority.NONE;
@@ -37,7 +38,6 @@ function Task(properties) {
   this.reminders = properties.reminders || [];
   this.progress = properties.progress;
   this.modifiedTime = formatDate(properties.modifiedTime);
-  this.createdTime = formatDate(properties.createdTime);
   this.kind = properties.kind || 'TEXT'; // defaults to text unless told otherwise
   this.creator = properties.creator; // || loggedinUserId
   this.projectId = properties.projectId || properties.listId; // || inbox
