@@ -1,6 +1,6 @@
 {
   "name": "ticktick-wrapper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Wrapper to automate TickTick tasks",
   "main": "index.js",
   "scripts": {
