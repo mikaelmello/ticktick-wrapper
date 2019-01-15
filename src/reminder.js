@@ -1,22 +1,13 @@
-const ObjectID = require('bson-objectid');
+/** @module Models */
 
-/**
- * Error thrown when a call to create a {@link Reminder} is made
- * with an invalid time unit parameter.
- */
-class InvalidUnitError extends Error {
-  constructor(unit) {
-    super(`The unit "${unit}" is invalid`);
-  }
-}
+const ObjectID = require('bson-objectid');
 
 /**
  * Class that represents a Reminder used in {@link Task}s.
  * @class
- * @constructor
  * @param {Object} properties - Properties of the {@link Reminder}.
  * @param {string=} properties.id - Object ID of the Reminder, only defined when this is an
- * instantiation of a pre-existing reminger. On new reminders this must be empty in order
+ * instantiation of a pre-existing reminder. On new reminders this must be empty in order
  * to generate a new ObjectID
  * @param {string=} properties.trigger - Custom trigger in the pre-defined format
  * /^TRIGGER:-?PT[0-9]+[SMHD]$/
@@ -43,11 +34,21 @@ Reminder.TimeUnit = {
 };
 
 /**
-  * Creates a reminder object to be used when creating a {@link Task}. The reminder
-  * will go off at {quantity} {units} before the date set for the {@link Task}.
-  * @param {Number} quantity - Quantity of unit.
-  * @param {Reminder.TimeUnit} unit - Unit of time
-  */
+ * Error thrown when a call to create a {@link Reminder} is made
+ * with an invalid time unit parameter.
+ */
+Reminder.InvalidUnitError = class extends Error {
+  constructor(unit) {
+    super(`The unit "${unit}" is invalid`);
+  }
+};
+
+/**
+ * Creates a reminder object to be used when creating a {@link Task}. The reminder
+ * will go off at {quantity} {units} before the date set for the {@link Task}.
+ * @param {Number} quantity - Quantity of unit.
+ * @param {Reminder.TimeUnit} unit - Unit of time
+ */
 Reminder._create = function _create(quantity, unit) {
   let trigger;
 
@@ -66,7 +67,7 @@ Reminder._create = function _create(quantity, unit) {
     } else if (unitLc === Reminder.TimeUnit.DAYS) {
       unitChar = 'D';
     } else {
-      throw new InvalidUnitError();
+      throw new Reminder.InvalidUnitError();
     }
 
     trigger = `TRIGGER:-PT${quantity}${unitChar}`;
