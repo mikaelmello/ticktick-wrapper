@@ -34,50 +34,6 @@ const main = async () => {
 main();
 ```
 
-## API
+### Documentation
 
-### `TickTick`
-
-#### `TickTick.login(options)`
-
-Authenticate with TickTick and store the session info for future calls. This method must be called *before* any other.
-
-- `options`: Object - Contains the credenials to authenticate.
-  - `options.email`: Object - Must be populated if the preferred login method is by e-mail
-    - `options.email.username`: String - Your account username, the e-mail
-    - `options.email.password`: String - Your password
-
-Logins via Google, Facebook or Twitter are not implemented yet.
-
-#### `TickTick.user`
-
-Object that contains relevant information about the authenticated user
-
-- `user.id`: String - Id of the user
-- `user.username`: String - Username of the user
-- `user.isPro`: Bool - Whether the user has a pro account
-
-#### `TickTick.createReminder(quantity, unit)`
-
-Time before start date to have a reminder of the task.
-
-- `quantity`: Number - Quantity of \<unit\> to set the reminder before start date
-- `unit`: String - Unit of quantity. Allowed values are:
-  - `'seconds', 'minutes', 'hours', 'days'`
-  - `'s', 'm', 'h', 'd'`
-
-#### `TickTick.Inbox`
-
-[`List`](#list) object that references the inbox of your account.
-
-### `List`
-
-#### `List.addSimpleTask(title, content, date, isAllDay, reminder)`
-
-Creates a task that has only a title and a description (content) and instantly adds it in your account, inside the list referenced by the object in which you are calling the method. It is also possible to add a date and reminders for it.
-
-- `title`: String - Title of the task
-- `content`: String - Description of the task
-- `date`: Date - Date to set in the task
-- `isAllDay`: Boolean - Whether the task has a specific time in the day
-- `reminders`: [[Reminder](#reminder)] - Reminders to set in the task, create them using [`TickTick.createReminder`](#ticktickcreatereminderquantityunit)
+Documentation and the API can be found [here](https://mikaelmello.github.io/ticktick-wrapper)

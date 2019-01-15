@@ -63,42 +63,7 @@ const main = async () => {
   await ticktick.Inbox.addSimpleTask(title, description);
 };
 
-main();</code></pre><h2>API</h2><h3><code>TickTick</code></h3><h4><code>TickTick.login(options)</code></h4><p>Authenticate with TickTick and store the session info for future calls. This method must be called <em>before</em> any other.</p>
-<ul>
-<li><code>options</code>: Object - Contains the credenials to authenticate.<ul>
-<li><code>options.email</code>: Object - Must be populated if the preferred login method is by e-mail<ul>
-<li><code>options.email.username</code>: String - Your account username, the e-mail</li>
-<li><code>options.email.password</code>: String - Your password</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>Logins via Google, Facebook or Twitter are not implemented yet.</p>
-<h4><code>TickTick.user</code></h4><p>Object that contains relevant information about the authenticated user</p>
-<ul>
-<li><code>user.id</code>: String - Id of the user</li>
-<li><code>user.username</code>: String - Username of the user</li>
-<li><code>user.isPro</code>: Bool - Whether the user has a pro account</li>
-</ul>
-<h4><code>TickTick.createReminder(quantity, unit)</code></h4><p>Time before start date to have a reminder of the task.</p>
-<ul>
-<li><code>quantity</code>: Number - Quantity of \&lt;unit> to set the reminder before start date</li>
-<li><code>unit</code>: String - Unit of quantity. Allowed values are:<ul>
-<li><code>'seconds', 'minutes', 'hours', 'days'</code></li>
-<li><code>'s', 'm', 'h', 'd'</code></li>
-</ul>
-</li>
-</ul>
-<h4><code>TickTick.Inbox</code></h4><p><a href="#list"><code>List</code></a> object that references the inbox of your account.</p>
-<h3><code>List</code></h3><h4><code>List.addSimpleTask(title, content, date, isAllDay, reminder)</code></h4><p>Creates a task that has only a title and a description (content) and instantly adds it in your account, inside the list referenced by the object in which you are calling the method. It is also possible to add a date and reminders for it.</p>
-<ul>
-<li><code>title</code>: String - Title of the task</li>
-<li><code>content</code>: String - Description of the task</li>
-<li><code>date</code>: Date - Date to set in the task</li>
-<li><code>isAllDay</code>: Boolean - Whether the task has a specific time in the day</li>
-<li><code>reminders</code>: [<a href="#reminder">Reminder</a>] - Reminders to set in the task, create them using <a href="#ticktickcreatereminderquantityunit"><code>TickTick.createReminder</code></a></li>
-</ul></article>
+main();</code></pre><h3>Documentation</h3><p>Documentation and the API can be found <a href="https://mikaelmello.github.io/ticktick-wrapper">here</a></p></article>
     </section>
 
 
