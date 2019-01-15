@@ -11,6 +11,13 @@ function Reminder(options) {
   this.trigger = options.trigger || 'TRIGGER:PT0S';
 }
 
+Reminder.TimeUnit = {
+  SECONDS: 0,
+  MINUTES: 1,
+  HOURS: 2,
+  DAYS: 3,
+};
+
 Reminder._create = function _create(quantity, unit) {
   let trigger;
 
@@ -20,13 +27,13 @@ Reminder._create = function _create(quantity, unit) {
     const unitLc = unit.toLowerCase();
     let unitChar;
 
-    if (unitLc === 'seconds' || unitLc === 's') {
+    if (unitLc === Reminder.TimeUnit.SECONDS) {
       unitChar = 'S';
-    } else if (unitLc === 'minutes' || unitLc === 'm') {
+    } else if (unitLc === Reminder.TimeUnit.MINUTES) {
       unitChar = 'M';
-    } else if (unitLc === 'hours' || unitLc === 'h') {
+    } else if (unitLc === Reminder.TimeUnit.HOURS) {
       unitChar = 'H';
-    } else if (unitLc === 'days' || unitLc === 'd') {
+    } else if (unitLc === Reminder.TimeUnit.DAYS) {
       unitChar = 'D';
     } else {
       throw new InvalidUnitError();
