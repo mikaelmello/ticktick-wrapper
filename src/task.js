@@ -1,3 +1,5 @@
+/** @module Models */
+
 const ObjectID = require('bson-objectid');
 const conn = require('./connection');
 const utils = require('./utils');
@@ -23,6 +25,11 @@ const utils = require('./utils');
  * @param {Object[]} [properties.items=[]] - Items of the task
  * @param {Reminder=} properties.reminder - Closest reminder
  * @param {Reminder[]} [properties.reminders=[]] - Reminders of the task
+ * @param {Number=} properties.progress - Progress of items, from 0 to 100
+ * @param {Task.Kind} [properties.kind=Task.Kind.TEXT] - Task kind
+ * @param {string=} properties.creator - User id of the task creator
+ * @param {string=} properties.listId - List in which the task belongs
+ */
 function Task(properties) {
   this.id = properties.id || ObjectID();
   this.title = properties.title;
@@ -37,19 +44,26 @@ function Task(properties) {
   this.reminder = properties.reminder;
   this.reminders = properties.reminders || [];
   this.progress = properties.progress;
-  this.modifiedTime = formatDate(properties.modifiedTime);
-  this.kind = properties.kind || 'TEXT'; // defaults to text unless told otherwise
+  this.kind = properties.kind || Task.Kind.TEXT; // defaults to text unless told otherwise
   this.creator = properties.creator; // || loggedinUserId
   this.projectId = properties.projectId || properties.listId; // || inbox
   this.listId = properties.projectId || properties.listId; // || inbox
 }
 
+/**
+ * Current status of the task
+ * @enum {Number}
+ */
 Task.Status = {
   TODO: 0,
   UNKNOWN: 1, // TODO - Discover  what is status 1
   COMPLETED: 2,
 };
 
+/**
+ * Priority of the task
+ * @enum {Number}
+ */
 Task.Priority = {
   NONE: 0,
   LOW: 1,
@@ -57,6 +71,19 @@ Task.Priority = {
   HIGH: 5,
 };
 
+/**
+ * Task kind
+ * @enum {string}
+ */
+Task.Kind = {
+  TEXT: 'TEXT',
+  CHECKLIST: 'CHECKLIST',
+};
+
+/**
+ * Get all tasks that are uncompleted.
+ * @returns {Task[]} Tasks with status equal to TODO
+ */
 Task.prototype._getAllUncompleted = async function _getAll(/* filter */) {
   const options = {
     uri: `${conn.baseUri}/project/all/tasks`,
@@ -71,6 +98,10 @@ Task.prototype._getAllUncompleted = async function _getAll(/* filter */) {
   return objectTasks.filter(task => task.status === Task.Status.TODO);
 };
 
+/**
+ * Saves task in TickTIck by sending a request to TickTick's API
+ * @returns Request response
+ */
 Task.prototype._add = async function _add() {
   const options = {
     method: 'POST',
