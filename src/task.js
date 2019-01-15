@@ -22,26 +22,26 @@ function formatDate(date) {
   return dateString.replace('Z', '+0000');
 }
 
-function Task(options) {
-  this.id = options.id || ObjectID();
-  this.title = options.title;
-  this.content = options.content;
-  this.startDate = formatDate(options.startDate);
-  this.dueDate = formatDate(options.dueDate);
-  this.timeZone = options.timeZone;
-  this.isAllDay = options.isAllDay || false;
-  this.priority = options.priority || Task.Priority.NONE;
-  this.status = options.status || Task.Status.TODO;
-  this.items = options.items || []; // && options.items.map(item => new Item(item));
-  this.reminder = options.reminder;
-  this.reminders = options.reminders || [];
-  this.progress = options.progress;
-  this.modifiedTime = formatDate(options.modifiedTime);
-  this.createdTime = formatDate(options.createdTime);
-  this.kind = options.kind || 'TEXT'; // defaults to text unless told otherwise
-  this.creator = options.creator; // || loggedinUserId
-  this.projectId = options.projectId || options.listId; // || inbox
-  this.listId = options.projectId || options.listId; // || inbox
+function Task(properties) {
+  this.id = properties.id || ObjectID();
+  this.title = properties.title;
+  this.content = properties.content;
+  this.startDate = formatDate(properties.startDate);
+  this.dueDate = formatDate(properties.dueDate);
+  this.timeZone = properties.timeZone;
+  this.isAllDay = properties.isAllDay || false;
+  this.priority = properties.priority || Task.Priority.NONE;
+  this.status = properties.status || Task.Status.TODO;
+  this.items = properties.items || []; // && properties.items.map(item => new Item(item));
+  this.reminder = properties.reminder;
+  this.reminders = properties.reminders || [];
+  this.progress = properties.progress;
+  this.modifiedTime = formatDate(properties.modifiedTime);
+  this.createdTime = formatDate(properties.createdTime);
+  this.kind = properties.kind || 'TEXT'; // defaults to text unless told otherwise
+  this.creator = properties.creator; // || loggedinUserId
+  this.projectId = properties.projectId || properties.listId; // || inbox
+  this.listId = properties.projectId || properties.listId; // || inbox
 }
 
 Task.Status = {

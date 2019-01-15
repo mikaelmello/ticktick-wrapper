@@ -6,9 +6,9 @@ class InvalidUnitError extends Error {
   }
 }
 
-function Reminder(options) {
-  this.id = options.id || ObjectID();
-  this.trigger = options.trigger || 'TRIGGER:PT0S';
+function Reminder(properties) {
+  this.id = properties.id || ObjectID();
+  this.trigger = properties.trigger || 'TRIGGER:PT0S';
 }
 
 Reminder.TimeUnit = {

@@ -2,14 +2,14 @@ const ObjectID = require('bson-objectid');
 const conn = require('./connection');
 const Task = require('./task');
 
-function List(options) {
-  this.id = options.id || ObjectID();
-  this.name = options.name;
-  this.isOwner = !(options.isOwner === false);
-  this.color = options.color;
-  this.closed = options.closed || false;
-  this.muted = options.muted || false;
-  this.groupId = options.groupId;
+function List(properties) {
+  this.id = properties.id || ObjectID();
+  this.name = properties.name;
+  this.isOwner = !(properties.isOwner === false);
+  this.color = properties.color;
+  this.closed = properties.closed || false;
+  this.muted = properties.muted || false;
+  this.groupId = properties.groupId;
 }
 
 List._getAll = async function _getAll(/* filter */) {
