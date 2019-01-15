@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>task.js - Documentation</title>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <span class="navicon"></span>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-Models-List.html">List</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-List.html#._getAll">_getAll</a></li><li data-type='method'><a href="module-Models-List.html#addSimpleTask">addSimpleTask</a></li></ul></li><li><a href="module-Models-Reminder.html">Reminder</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Reminder.html#.TimeUnit">TimeUnit</a></li></ul></li><li><a href="module-Models-Task.html">Task</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Task.html#.Kind">Kind</a></li><li data-type='member'><a href="module-Models-Task.html#.Priority">Priority</a></li><li data-type='member'><a href="module-Models-Task.html#.Status">Status</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-Task.html#_getAllUncompleted">_getAllUncompleted</a></li><li data-type='method'><a href="module-Models-Task.html#save">save</a></li></ul></li><li><a href="module-TickTick-TickTick.html">TickTick</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-TickTick-TickTick.html#_cacheMaxAgeInMinutes">_cacheMaxAgeInMinutes</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCache">_listsCache</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCacheLastUpdate">_listsCacheLastUpdate</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Inbox">Inbox</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#List">List</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Reminder">Reminder</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Task">Task</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#user">user</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-TickTick-TickTick.html#_checkListsCache">_checkListsCache</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#_setUserInfo">_setUserInfo</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#changeCacheMaxAge">changeCacheMaxAge</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#createReminder">createReminder</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getListByName">getListByName</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getLists">getLists</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#login">login</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-Authentication.html">Authentication</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Authentication.html#~assertLogin">assertLogin</a></li><li data-type='method'><a href="module-Authentication.html#~loginEmail">loginEmail</a></li><li data-type='method'><a href="module-Authentication.html#~loginFacebook">loginFacebook</a></li><li data-type='method'><a href="module-Authentication.html#~loginGoogle">loginGoogle</a></li><li data-type='method'><a href="module-Authentication.html#~loginTwitter">loginTwitter</a></li></ul></li><li><a href="module-Connection.html">Connection</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Connection.html#~baseUri">baseUri</a></li><li data-type='member'><a href="module-Connection.html#~cookieJar">cookieJar</a></li><li data-type='member'><a href="module-Connection.html#~middlewares">middlewares</a></li><li data-type='member'><a href="module-Connection.html#~rpDefaults">rpDefaults</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Connection.html#~addMiddleware">addMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~clearMiddlewares">clearMiddlewares</a></li><li data-type='method'><a href="module-Connection.html#~removeMiddleware">removeMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~request">request</a></li></ul></li><li><a href="module-Models.html">Models</a></li><li><a href="module-TickTick.html">TickTick</a></li><li><a href="module-Utils.html">Utils</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Utils.html#~formatDate">formatDate</a></li><li data-type='method'><a href="module-Utils.html#~validateCache">validateCache</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">task.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module Models */
+
+const ObjectID = require('bson-objectid');
+const conn = require('./connection');
+const utils = require('./utils');
+
+/**
+ * Task model
+ * @class
+ * @param {Object} properties - Properties of the {@link Task}
+ * @param {string} [properties.id=ObjectID()] - Object ID of the tasks, only defined when this is an
+ * instantiation of a pre-existing tasks. On new taskss this must be empty in order
+ * to generate a new ObjectID
+ * @param {string} properties.title - Title of the task
+ * @param {string=} properties.content - Description of the task
+ * @param {Date|string} [properties.startDate=] - When the task is set to start. If it is a string
+ * it must have the format YYYY-MM-DDTHH:mm:ss.sss+0000 or YYYY-MM-DDTHH:mm:ss.sssZ
+ * @param {Date|string} [properties.dueDate=] - When the task is set to end. If it is a string
+ * it must have the format YYYY-MM-DDTHH:mm:ss.sss+0000 or YYYY-MM-DDTHH:mm:ss.sssZ
+ * @param {string=} properties.timeZone - Timezone used for the triggering of the task reminders
+ * and assigned date. If empty it will be set to the account's default.
+ * @param {boolean} [properties.isAllDay=False] - Whether the task is set to take the entire day
+ * @param {Task.Priority} [properties.priority=Task.Priority.NONE] - Priority of the task
+ * @param {Task.Status} [properties.status=Task.Status.TODO] - Status of the task
+ * @param {Object[]} [properties.items=[]] - Items of the task
+ * @param {Reminder=} properties.reminder - Closest reminder
+ * @param {Reminder[]} [properties.reminders=[]] - Reminders of the task
+ * @param {Number=} properties.progress - Progress of items, from 0 to 100
+ * @param {Task.Kind} [properties.kind=Task.Kind.TEXT] - Task kind
+ * @param {string=} properties.creator - User id of the task creator
+ * @param {string=} properties.listId - List in which the task belongs
+ */
+function Task(properties) {
+  this.id = properties.id || ObjectID();
+  this.title = properties.title;
+  this.content = properties.content;
+  this.startDate = utils.formatDate(properties.startDate);
+  this.dueDate = utils.formatDate(properties.dueDate);
+  this.timeZone = properties.timeZone;
+  this.isAllDay = properties.isAllDay || false;
+  this.priority = properties.priority || Task.Priority.NONE;
+  this.status = properties.status || Task.Status.TODO;
+  this.items = properties.items || []; // &amp;&amp; properties.items.map(item => new Item(item));
+  this.reminder = properties.reminder;
+  this.reminders = properties.reminders || [];
+  this.progress = properties.progress;
+  this.kind = properties.kind || Task.Kind.TEXT; // defaults to text unless told otherwise
+  this.creator = properties.creator; // || loggedinUserId
+  this.projectId = properties.projectId || properties.listId; // || inbox
+  this.listId = properties.projectId || properties.listId; // || inbox
+}
+
+/**
+ * Current status of the task
+ * @enum {Number}
+ */
+Task.Status = {
+  TODO: 0,
+  UNKNOWN: 1, // TODO - Discover  what is status 1
+  COMPLETED: 2,
+};
+
+/**
+ * Priority of the task
+ * @enum {Number}
+ */
+Task.Priority = {
+  NONE: 0,
+  LOW: 1,
+  MEDIUM: 3,
+  HIGH: 5,
+};
+
+/**
+ * Task kind
+ * @enum {string}
+ */
+Task.Kind = {
+  TEXT: 'TEXT',
+  CHECKLIST: 'CHECKLIST',
+};
+
+/**
+ * Get all tasks that are uncompleted.
+ * @private
+ * @returns {Task[]} Tasks with status equal to TODO
+ */
+Task.prototype._getAllUncompleted = async function _getAll(/* filter */) {
+  const options = {
+    uri: `${conn.baseUri}/project/all/tasks`,
+    json: true,
+  };
+
+  const rawTasks = await conn.request(options);
+  const objectTasks = rawTasks.map(task => new Task(task));
+
+  // For some reason some completed tasks are included in the response,
+  // we must filter them out
+  return objectTasks.filter(task => task.status === Task.Status.TODO);
+};
+
+/**
+ * Saves task in TickTick by sending a request to TickTick's API
+ * @private
+ * @returns Request response
+ */
+Task.prototype.save = async function _save() {
+  const options = {
+    method: 'POST',
+    uri: `${conn.baseUri}/task`,
+    json: true,
+    body: this,
+  };
+
+  return conn.request(options);
+};
+
+module.exports = Task;
+
+// Task structure from api response
+// {
+//   id: '5c336b84b4fb395ec6529b79',
+//   projectId: '5c0eee65e4b00d057d2e5499',
+//   sortOrder: -25838523252736,
+//   title: 'Lançar nightly para testar últimas mudanças',
+//   content: '',
+//   startDate: '2019-01-08T11:00:00.000+0000',
+//   dueDate: '2019-01-08T11:00:00.000+0000',
+//   timeZone: 'America/Sao_Paulo',
+//   isAllDay: false,
+//   reminder: 'TRIGGER:PT0S',
+//   reminders: [ [Object] ],
+//   repeatFirstDate: '2019-01-08T11:00:00.000+0000',
+//   exDate: [],
+//   completedTime: '2019-01-08T14:09:54.222+0000',
+//   completedUserId: 114837412,
+//   priority: 0,
+//   status: 2,
+//   items: [],
+//   progress: 0,
+//   modifiedTime: '2019-01-08T14:09:54.223+0000',
+//   etag: '9fumekc5',
+//   deleted: 0,
+//   createdTime: '2019-01-07T15:08:59.021+0000',
+//   creator: 114837412,
+//   kind: 'TEXT'
+// }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc 3.5.5</a> on 1/15/2019 using the <a href="https://github.com/Grafluxe/boxy-jsdoc-template" target="_blank">boxy-jsdoc-template</a> theme.
+</footer>
+
+<script src="scripts/prettify/prettify.js"></script>
+<script src="scripts/prettify/lang-css.js"></script>
+<script src="scripts/script.js"></script>
+
+</body>
+</html>

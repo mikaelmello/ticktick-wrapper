@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Utils - Documentation</title>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <span class="navicon"></span>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-Models-List.html">List</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-List.html#._getAll">_getAll</a></li><li data-type='method'><a href="module-Models-List.html#addSimpleTask">addSimpleTask</a></li></ul></li><li><a href="module-Models-Reminder.html">Reminder</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Reminder.html#.TimeUnit">TimeUnit</a></li></ul></li><li><a href="module-Models-Task.html">Task</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Task.html#.Kind">Kind</a></li><li data-type='member'><a href="module-Models-Task.html#.Priority">Priority</a></li><li data-type='member'><a href="module-Models-Task.html#.Status">Status</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-Task.html#_getAllUncompleted">_getAllUncompleted</a></li><li data-type='method'><a href="module-Models-Task.html#save">save</a></li></ul></li><li><a href="module-TickTick-TickTick.html">TickTick</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-TickTick-TickTick.html#_cacheMaxAgeInMinutes">_cacheMaxAgeInMinutes</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCache">_listsCache</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCacheLastUpdate">_listsCacheLastUpdate</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Inbox">Inbox</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#List">List</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Reminder">Reminder</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Task">Task</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#user">user</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-TickTick-TickTick.html#_checkListsCache">_checkListsCache</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#_setUserInfo">_setUserInfo</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#changeCacheMaxAge">changeCacheMaxAge</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#createReminder">createReminder</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getListByName">getListByName</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getLists">getLists</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#login">login</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-Authentication.html">Authentication</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Authentication.html#~assertLogin">assertLogin</a></li><li data-type='method'><a href="module-Authentication.html#~loginEmail">loginEmail</a></li><li data-type='method'><a href="module-Authentication.html#~loginFacebook">loginFacebook</a></li><li data-type='method'><a href="module-Authentication.html#~loginGoogle">loginGoogle</a></li><li data-type='method'><a href="module-Authentication.html#~loginTwitter">loginTwitter</a></li></ul></li><li><a href="module-Connection.html">Connection</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Connection.html#~baseUri">baseUri</a></li><li data-type='member'><a href="module-Connection.html#~cookieJar">cookieJar</a></li><li data-type='member'><a href="module-Connection.html#~middlewares">middlewares</a></li><li data-type='member'><a href="module-Connection.html#~rpDefaults">rpDefaults</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Connection.html#~addMiddleware">addMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~clearMiddlewares">clearMiddlewares</a></li><li data-type='method'><a href="module-Connection.html#~removeMiddleware">removeMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~request">request</a></li></ul></li><li><a href="module-Models.html">Models</a></li><li><a href="module-TickTick.html">TickTick</a></li><li><a href="module-Utils.html">Utils</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Utils.html#~formatDate">formatDate</a></li><li data-type='method'><a href="module-Utils.html#~validateCache">validateCache</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Utils</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    <span class="creds">
+      
+
+      
+    </span>
+
+    <hr>
+
+    
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+
+    
+
+
+<div class="group" id="~formatDate">
+
+
+    <h4 class="name"><span class="type-signature">(private, inner) </span><b>formatDate</b><span class="signature">(<span class="sig-params">date</span>)</span><span class="type-signature">:string</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Converts a Date object into a formatted string suitable for adding a task</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters</h5>
+    
+
+<div class="params">
+    
+
+    
+        <span class="name">date</span><span class="type"><span class="param-type">:Date</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>Date to be formatted</p></div>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        <span class="param-type">:string</span>
+    </dd>
+</dl>
+
+<div class="param-desc">
+    <p>ISO string with Z replaced to '+0000'</p>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="utils.js.html">utils.js</a>, <a href="utils.js.html#line34">line 34</a></div>
+
+
+</div>
+
+        
+            
+
+
+    
+
+
+<div class="group" id="~validateCache">
+
+
+    <h4 class="name"><span class="type-signature">(private, inner) </span><b>validateCache</b><span class="signature">(<span class="sig-params">date<span class="params-divider">, </span>maxAgeInMinutes</span>)</span><span class="type-signature">:boolean</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Checkes whether the current cache has not expired based on its last update date and its max
+age (in minutes)</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters</h5>
+    
+
+<div class="params">
+    
+
+    
+        <span class="name">date</span><span class="type"><span class="param-type">:Date</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>Date of cache last update</p></div>
+
+    
+
+    
+        <span class="name">maxAgeInMinutes</span><span class="type"><span class="param-type">:Number</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>Maximum number of minutes that can pass before the cache is
+invalidated</p></div>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        <span class="param-type">:boolean</span>
+    </dd>
+</dl>
+
+<div class="param-desc">
+    <p>Whether the cache is still valid</p>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="utils.js.html">utils.js</a>, <a href="utils.js.html#line12">line 12</a></div>
+
+
+</div>
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc 3.5.5</a> on 1/15/2019 using the <a href="https://github.com/Grafluxe/boxy-jsdoc-template" target="_blank">boxy-jsdoc-template</a> theme.
+</footer>
+
+<script src="scripts/prettify/prettify.js"></script>
+<script src="scripts/prettify/lang-css.js"></script>
+<script src="scripts/script.js"></script>
+
+</body>
+</html>

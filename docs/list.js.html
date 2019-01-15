@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>list.js - Documentation</title>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <span class="navicon"></span>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-Models-List.html">List</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-List.html#._getAll">_getAll</a></li><li data-type='method'><a href="module-Models-List.html#addSimpleTask">addSimpleTask</a></li></ul></li><li><a href="module-Models-Reminder.html">Reminder</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Reminder.html#.TimeUnit">TimeUnit</a></li></ul></li><li><a href="module-Models-Task.html">Task</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Task.html#.Kind">Kind</a></li><li data-type='member'><a href="module-Models-Task.html#.Priority">Priority</a></li><li data-type='member'><a href="module-Models-Task.html#.Status">Status</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-Task.html#_getAllUncompleted">_getAllUncompleted</a></li><li data-type='method'><a href="module-Models-Task.html#save">save</a></li></ul></li><li><a href="module-TickTick-TickTick.html">TickTick</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-TickTick-TickTick.html#_cacheMaxAgeInMinutes">_cacheMaxAgeInMinutes</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCache">_listsCache</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCacheLastUpdate">_listsCacheLastUpdate</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Inbox">Inbox</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#List">List</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Reminder">Reminder</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Task">Task</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#user">user</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-TickTick-TickTick.html#_checkListsCache">_checkListsCache</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#_setUserInfo">_setUserInfo</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#changeCacheMaxAge">changeCacheMaxAge</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#createReminder">createReminder</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getListByName">getListByName</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getLists">getLists</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#login">login</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-Authentication.html">Authentication</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Authentication.html#~assertLogin">assertLogin</a></li><li data-type='method'><a href="module-Authentication.html#~loginEmail">loginEmail</a></li><li data-type='method'><a href="module-Authentication.html#~loginFacebook">loginFacebook</a></li><li data-type='method'><a href="module-Authentication.html#~loginGoogle">loginGoogle</a></li><li data-type='method'><a href="module-Authentication.html#~loginTwitter">loginTwitter</a></li></ul></li><li><a href="module-Connection.html">Connection</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Connection.html#~baseUri">baseUri</a></li><li data-type='member'><a href="module-Connection.html#~cookieJar">cookieJar</a></li><li data-type='member'><a href="module-Connection.html#~middlewares">middlewares</a></li><li data-type='member'><a href="module-Connection.html#~rpDefaults">rpDefaults</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Connection.html#~addMiddleware">addMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~clearMiddlewares">clearMiddlewares</a></li><li data-type='method'><a href="module-Connection.html#~removeMiddleware">removeMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~request">request</a></li></ul></li><li><a href="module-Models.html">Models</a></li><li><a href="module-TickTick.html">TickTick</a></li><li><a href="module-Utils.html">Utils</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Utils.html#~formatDate">formatDate</a></li><li data-type='method'><a href="module-Utils.html#~validateCache">validateCache</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">list.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module Models */
+
+const ObjectID = require('bson-objectid');
+const conn = require('./connection');
+const Task = require('./task');
+
+/**
+ * List model
+ * @class
+ * @param {Object} properties - Properties of the {@link List}
+ * @param {string} [properties.id=ObjectID()] - Object ID of the list, only defined when this is an
+ * instantiation of a pre-existing list. On new lists this must be empty in order
+ * to generate a new ObjectID
+ * @param {string} properties.name - Name of the list
+ * @param {bool} [properties.isOwner=True] - Whether the authenticated user is the owner of the
+ * list,defaults to true when creating new lists.
+ * @param {string=} properties.color - Color of the list
+ * @param {bool} [properties.closed=False] - Whether the list is closed
+ * @param {muted} [properties.muted=False] - Whether the list is muted
+ * @param {string=} properties.groupId - If the list belongs to a group, this is its id.
+ */
+function List(properties) {
+  this.id = properties.id || ObjectID();
+  this.name = properties.name;
+  this.isOwner = !(properties.isOwner === false);
+  this.color = properties.color;
+  this.closed = properties.closed || false;
+  this.muted = properties.muted || false;
+  this.groupId = properties.groupId;
+}
+
+/**
+ * Retrieves all lists of the authenticated user from TickTick
+ * @private
+ * @returns {List[]} Lists of the authenticated user
+ */
+List._getAll = async function _getAll(/* filter */) {
+  const options = {
+    uri: `${conn.baseUri}/projects`,
+    json: true,
+  };
+
+  const rawLists = await conn.request(options);
+
+  // map raw lists to object lists
+  return rawLists.map(list => new List(list));
+};
+
+/**
+ * Adds a task to the current List
+ * @param {string} title - Title of the task
+ * @param {string=} content - Description of the task
+ * @param {Date=} date - Date assigned to the task
+ * @param {boolean=} isAllDay - Whether the task is assigned for date's entire day or the
+ * specifc time
+ * @param {Reminder[]} reminders - Reminders of the task
+ */
+List.prototype.addSimpleTask = async function _addST(title, content, date, isAllDay, reminders) {
+  const task = new Task({
+    title,
+    content,
+    listId: this.id,
+    startDate: date,
+    isAllDay,
+    reminders,
+  });
+  task.save();
+};
+
+module.exports = List;
+
+// List structure from api response
+// {
+//   id: '5c342818e4b04a7154bfea3a',
+//   name: 'Any',
+//   isOwner: true,
+//   color: null,
+//   inAll: true,
+//   sortOrder: 5634997092352,
+//   sortType: 'sortOrder',
+//   userCount: 1,
+//   etag: 'nhkgjsie',
+//   modifiedTime: '2019-01-08T14:04:43.161+0000',
+//   closed: null,
+//   muted: false,
+//   groupId: '5c0eee2aedcd255b9cfde1c0',
+// }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc 3.5.5</a> on 1/15/2019 using the <a href="https://github.com/Grafluxe/boxy-jsdoc-template" target="_blank">boxy-jsdoc-template</a> theme.
+</footer>
+
+<script src="scripts/prettify/prettify.js"></script>
+<script src="scripts/prettify/lang-css.js"></script>
+<script src="scripts/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ticktick.js - Documentation</title>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <span class="navicon"></span>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-Models-List.html">List</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-List.html#._getAll">_getAll</a></li><li data-type='method'><a href="module-Models-List.html#addSimpleTask">addSimpleTask</a></li></ul></li><li><a href="module-Models-Reminder.html">Reminder</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Reminder.html#.TimeUnit">TimeUnit</a></li></ul></li><li><a href="module-Models-Task.html">Task</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Task.html#.Kind">Kind</a></li><li data-type='member'><a href="module-Models-Task.html#.Priority">Priority</a></li><li data-type='member'><a href="module-Models-Task.html#.Status">Status</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-Task.html#_getAllUncompleted">_getAllUncompleted</a></li><li data-type='method'><a href="module-Models-Task.html#save">save</a></li></ul></li><li><a href="module-TickTick-TickTick.html">TickTick</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-TickTick-TickTick.html#_cacheMaxAgeInMinutes">_cacheMaxAgeInMinutes</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCache">_listsCache</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCacheLastUpdate">_listsCacheLastUpdate</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Inbox">Inbox</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#List">List</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Reminder">Reminder</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Task">Task</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#user">user</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-TickTick-TickTick.html#_checkListsCache">_checkListsCache</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#_setUserInfo">_setUserInfo</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#changeCacheMaxAge">changeCacheMaxAge</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#createReminder">createReminder</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getListByName">getListByName</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getLists">getLists</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#login">login</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-Authentication.html">Authentication</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Authentication.html#~assertLogin">assertLogin</a></li><li data-type='method'><a href="module-Authentication.html#~loginEmail">loginEmail</a></li><li data-type='method'><a href="module-Authentication.html#~loginFacebook">loginFacebook</a></li><li data-type='method'><a href="module-Authentication.html#~loginGoogle">loginGoogle</a></li><li data-type='method'><a href="module-Authentication.html#~loginTwitter">loginTwitter</a></li></ul></li><li><a href="module-Connection.html">Connection</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Connection.html#~baseUri">baseUri</a></li><li data-type='member'><a href="module-Connection.html#~cookieJar">cookieJar</a></li><li data-type='member'><a href="module-Connection.html#~middlewares">middlewares</a></li><li data-type='member'><a href="module-Connection.html#~rpDefaults">rpDefaults</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Connection.html#~addMiddleware">addMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~clearMiddlewares">clearMiddlewares</a></li><li data-type='method'><a href="module-Connection.html#~removeMiddleware">removeMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~request">request</a></li></ul></li><li><a href="module-Models.html">Models</a></li><li><a href="module-TickTick.html">TickTick</a></li><li><a href="module-Utils.html">Utils</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Utils.html#~formatDate">formatDate</a></li><li data-type='method'><a href="module-Utils.html#~validateCache">validateCache</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">ticktick.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module TickTick */
+
+const conn = require('./connection');
+const utils = require('./utils');
+const auth = require('./auth');
+const List = require('./list');
+const Task = require('./task');
+const Reminder = require('./reminder');
+
+/**
+ * Wrapper's main class
+ * @class
+ */
+function TickTick() {
+  conn.addMiddleware(auth.assertLogin);
+
+  /**
+   * Information about the authenticated user
+   * @member {Object}
+   * @property {string} username - Authenticated user's username
+   * @property {string} id - Account ID of the authenticated user
+   * @property {boolean} pro - Whether the authenticated user has a pro account
+   */
+  this.user = {};
+
+  /**
+   * Inbox list of the authenticated user
+   * @member {List|undefined}
+   */
+  this.Inbox = undefined;
+
+  /**
+   * Object with cached user lists where the key is the name of the list
+   * @private
+   * @member {Object.&lt;string, List>}
+   */
+  this._listsCache = {};
+
+  /**
+   * Last time {@link TickTick#_listsCache} was updated
+   * @private
+   * @member {Date}
+   */
+  this._listsCacheLastUpdate = undefined;
+
+  /**
+   * Max minutes the cache can live before being refreshed
+   * @private
+   * @member {Number}
+   */
+  this._cacheMaxAgeInMinutes = 10;
+}
+
+/**
+ * Authenticate with TickTick and store the session info for future calls.
+ * This method must be called *before* any other.
+ * @param {Object} options - Login options
+ * @param {Object=} options.email - Object that must exist if the login is done via email
+ * @param {string} options.email.username - Your TickTick's account e-mail
+ * @param {string} options.email.password - Your TickTick's account password
+ */
+TickTick.prototype.login = async function _login(options) {
+  if (!options) {
+    throw new auth.errors.NoLoginProviderSelectedError();
+  }
+  try {
+    conn.removeMiddleware(auth.assertLogin);
+    let userInfo;
+    if (options.email) {
+      userInfo = await auth.loginEmail(options.email);
+    } else if (options.google) {
+      userInfo = await auth.loginGoogle(options.google);
+    } else if (options.facebook) {
+      userInfo = await auth.loginFacebook(options.facebook);
+    } else if (options.twitter) {
+      userInfo = await auth.loginTwitter(options.twitter);
+    } else {
+      throw new auth.errors.NoLoginProviderSelectedError();
+    }
+
+    this._setUserInfo(userInfo);
+  } finally {
+    conn.addMiddleware(auth.assertLogin);
+  }
+};
+
+/**
+ * Stores local information about the authenticated user
+ * @private
+ * @param {Object} userInfo - User Innformation
+ * @param {string} userInfo.inboxId - Id of the authenticated ser's Inbox list
+ * @param {string} userInfo.username - Authenticated user's username
+ * @param {string} userInfo.id - Account ID of the authenticated user
+ * @param {boolean} userInfo.pro - Whether the authenticated user has a pro account
+ */
+TickTick.prototype._setUserInfo = function _setUserInfo(userInfo) {
+  this.user.username = userInfo.username;
+  this.user.isPro = userInfo.pro;
+  this.user.id = userInfo.userId;
+  this.Inbox = new List({
+    id: userInfo.inboxId,
+    name: 'Inbox',
+  });
+};
+
+/**
+ * Update the max age a cached object can have before being refreshed
+ * @param {Number} minutes - Maximum age in minutes
+ */
+TickTick.prototype.changeCacheMaxAge = function _changeCacheMaxAge(minutes) {
+  this._cacheMaxAgeInMinutes = minutes;
+};
+
+/**
+ * List-related methods
+ */
+
+/**
+ * Verify if the current lists cache has not expired. If it has expired, it will update
+ * TickTick's list properties
+ * @private
+ */
+TickTick.prototype._checkListsCache = async function _checkListsCache() {
+  if (!utils.validateCache(this._listsCacheLastUpdate, this._cacheMaxAgeInMinutes)) {
+    const listsArray = await List._getAll();
+    for (let i = 0; i &lt; listsArray.length; i += 1) {
+      const current = listsArray[i];
+      this._listsCache[current.name] = current;
+    }
+
+    this._listsCacheLastUpdate = new Date();
+  }
+};
+
+/**
+ * Gets a map of all lists available to the authenticated user
+ * @param {boolean=} forceRefresh - Whether to force a refresh of the cached lists
+ * @returns {Object.&lt;string, List>} Object with cached user lists where the key is
+ * the name of the list
+ */
+TickTick.prototype.getLists = async function _getLists(forceRefresh) {
+  if (forceRefresh === true) {
+    this._listsCacheLastUpdate = undefined;
+  }
+
+  await this._checkListsCache();
+  return this._listsCache;
+};
+
+/**
+ * Gets a list with a specific name
+ * @param {string} name - The name of the list
+ * @param {boolean=} forceRefresh - Whether to force a refresh of the cached lists
+ * @returns {List|undefined}} {@link List} object or undefined if a list with the
+ * provided name does not exist
+ */
+TickTick.prototype.getListByName = async function _getListByName(name, forceRefresh) {
+  if (forceRefresh === true) {
+    this._listsCacheLastUpdate = undefined;
+  }
+
+  await this._checkListsCache();
+  return this._listsCache[name];
+};
+
+
+/**
+ * Reminder-related properties
+ */
+
+/**
+  * Creates a reminder object to be used when creating a {@link Task}. The reminder
+  * will go off at {quantity} {units} before the date set for the {@link Task}.
+  * If quantity equals to 0, an instant reminder will be returned
+  * @param {Number} quantity - Quantity of unit.
+  * @param {Reminder.TimeUnit} unit - Unit of time
+  * @returns {Reminder} Reminder object that can be used to create a {@link Task}.
+  */
+TickTick.prototype.createReminder = function _createReminder(quantity, unit) {
+  return new Reminder(quantity, unit);
+};
+
+/**
+ * Access to List model
+ */
+TickTick.prototype.List = List;
+
+/**
+ * Access to Task model
+ */
+TickTick.prototype.Task = Task;
+
+/**
+ * Access to Reminder model
+ */
+TickTick.prototype.Reminder = Reminder;
+
+const tickTick = new TickTick();
+module.exports = tickTick;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc 3.5.5</a> on 1/15/2019 using the <a href="https://github.com/Grafluxe/boxy-jsdoc-template" target="_blank">boxy-jsdoc-template</a> theme.
+</footer>
+
+<script src="scripts/prettify/prettify.js"></script>
+<script src="scripts/prettify/lang-css.js"></script>
+<script src="scripts/script.js"></script>
+
+</body>
+</html>

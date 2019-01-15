@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home - Documentation</title>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <span class="navicon"></span>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-Models-List.html">List</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-List.html#._getAll">_getAll</a></li><li data-type='method'><a href="module-Models-List.html#addSimpleTask">addSimpleTask</a></li></ul></li><li><a href="module-Models-Reminder.html">Reminder</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Reminder.html#.TimeUnit">TimeUnit</a></li></ul></li><li><a href="module-Models-Task.html">Task</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Task.html#.Kind">Kind</a></li><li data-type='member'><a href="module-Models-Task.html#.Priority">Priority</a></li><li data-type='member'><a href="module-Models-Task.html#.Status">Status</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-Task.html#_getAllUncompleted">_getAllUncompleted</a></li><li data-type='method'><a href="module-Models-Task.html#save">save</a></li></ul></li><li><a href="module-TickTick-TickTick.html">TickTick</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-TickTick-TickTick.html#_cacheMaxAgeInMinutes">_cacheMaxAgeInMinutes</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCache">_listsCache</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCacheLastUpdate">_listsCacheLastUpdate</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Inbox">Inbox</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#List">List</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Reminder">Reminder</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Task">Task</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#user">user</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-TickTick-TickTick.html#_checkListsCache">_checkListsCache</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#_setUserInfo">_setUserInfo</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#changeCacheMaxAge">changeCacheMaxAge</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#createReminder">createReminder</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getListByName">getListByName</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getLists">getLists</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#login">login</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-Authentication.html">Authentication</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Authentication.html#~assertLogin">assertLogin</a></li><li data-type='method'><a href="module-Authentication.html#~loginEmail">loginEmail</a></li><li data-type='method'><a href="module-Authentication.html#~loginFacebook">loginFacebook</a></li><li data-type='method'><a href="module-Authentication.html#~loginGoogle">loginGoogle</a></li><li data-type='method'><a href="module-Authentication.html#~loginTwitter">loginTwitter</a></li></ul></li><li><a href="module-Connection.html">Connection</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Connection.html#~baseUri">baseUri</a></li><li data-type='member'><a href="module-Connection.html#~cookieJar">cookieJar</a></li><li data-type='member'><a href="module-Connection.html#~middlewares">middlewares</a></li><li data-type='member'><a href="module-Connection.html#~rpDefaults">rpDefaults</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Connection.html#~addMiddleware">addMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~clearMiddlewares">clearMiddlewares</a></li><li data-type='method'><a href="module-Connection.html#~removeMiddleware">removeMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~request">request</a></li></ul></li><li><a href="module-Models.html">Models</a></li><li><a href="module-TickTick.html">TickTick</a></li><li><a href="module-Utils.html">Utils</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Utils.html#~formatDate">formatDate</a></li><li data-type='method'><a href="module-Utils.html#~validateCache">validateCache</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article class="group"><h1>TickTick Wrapper for Node</h1><p>This package is meant to be a wrapper that allows you to automate your actions on TickTick.</p>
+<p>It calls the <strong>undocumented API</strong>, used by the web app, that can change at any time, use with caution.</p>
+<h2>Getting started</h2><p>Install the package by executing:</p>
+<pre class="prettyprint source"><code>npm install -s ticktick-wrapper</code></pre><h3>Example</h3><pre class="prettyprint source"><code>require('dotenv').config();
+const ticktick = require('ticktick-wrapper');
+
+const main = async () => {
+  await ticktick.login({
+    email: {
+      username: process.env.EMAIL_LOGIN_USERNAME,
+      password: process.env.EMAIL_LOGIN_PASSWORD,
+    },
+  });
+
+  const title = 'Automated task';
+  const description = 'This is a task added programatically via ticktick-wrapper';
+  await ticktick.Inbox.addSimpleTask(title, description);
+};
+
+main();</code></pre><h2>API</h2><h3><code>TickTick</code></h3><h4><code>TickTick.login(options)</code></h4><p>Authenticate with TickTick and store the session info for future calls. This method must be called <em>before</em> any other.</p>
+<ul>
+<li><code>options</code>: Object - Contains the credenials to authenticate.<ul>
+<li><code>options.email</code>: Object - Must be populated if the preferred login method is by e-mail<ul>
+<li><code>options.email.username</code>: String - Your account username, the e-mail</li>
+<li><code>options.email.password</code>: String - Your password</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Logins via Google, Facebook or Twitter are not implemented yet.</p>
+<h4><code>TickTick.user</code></h4><p>Object that contains relevant information about the authenticated user</p>
+<ul>
+<li><code>user.id</code>: String - Id of the user</li>
+<li><code>user.username</code>: String - Username of the user</li>
+<li><code>user.isPro</code>: Bool - Whether the user has a pro account</li>
+</ul>
+<h4><code>TickTick.createReminder(quantity, unit)</code></h4><p>Time before start date to have a reminder of the task.</p>
+<ul>
+<li><code>quantity</code>: Number - Quantity of \&lt;unit> to set the reminder before start date</li>
+<li><code>unit</code>: String - Unit of quantity. Allowed values are:<ul>
+<li><code>'seconds', 'minutes', 'hours', 'days'</code></li>
+<li><code>'s', 'm', 'h', 'd'</code></li>
+</ul>
+</li>
+</ul>
+<h4><code>TickTick.Inbox</code></h4><p><a href="#list"><code>List</code></a> object that references the inbox of your account.</p>
+<h3><code>List</code></h3><h4><code>List.addSimpleTask(title, content, date, isAllDay, reminder)</code></h4><p>Creates a task that has only a title and a description (content) and instantly adds it in your account, inside the list referenced by the object in which you are calling the method. It is also possible to add a date and reminders for it.</p>
+<ul>
+<li><code>title</code>: String - Title of the task</li>
+<li><code>content</code>: String - Description of the task</li>
+<li><code>date</code>: Date - Date to set in the task</li>
+<li><code>isAllDay</code>: Boolean - Whether the task has a specific time in the day</li>
+<li><code>reminders</code>: [<a href="#reminder">Reminder</a>] - Reminders to set in the task, create them using <a href="#ticktickcreatereminderquantityunit"><code>TickTick.createReminder</code></a></li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc 3.5.5</a> on 1/15/2019 using the <a href="https://github.com/Grafluxe/boxy-jsdoc-template" target="_blank">boxy-jsdoc-template</a> theme.
+</footer>
+
+<script src="scripts/prettify/prettify.js"></script>
+<script src="scripts/prettify/lang-css.js"></script>
+<script src="scripts/script.js"></script>
+
+</body>
+</html>

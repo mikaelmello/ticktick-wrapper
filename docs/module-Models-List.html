@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>List - Documentation</title>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <span class="navicon"></span>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-Models-List.html">List</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-List.html#._getAll">_getAll</a></li><li data-type='method'><a href="module-Models-List.html#addSimpleTask">addSimpleTask</a></li></ul></li><li><a href="module-Models-Reminder.html">Reminder</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Reminder.html#.TimeUnit">TimeUnit</a></li></ul></li><li><a href="module-Models-Task.html">Task</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Task.html#.Kind">Kind</a></li><li data-type='member'><a href="module-Models-Task.html#.Priority">Priority</a></li><li data-type='member'><a href="module-Models-Task.html#.Status">Status</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-Task.html#_getAllUncompleted">_getAllUncompleted</a></li><li data-type='method'><a href="module-Models-Task.html#save">save</a></li></ul></li><li><a href="module-TickTick-TickTick.html">TickTick</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-TickTick-TickTick.html#_cacheMaxAgeInMinutes">_cacheMaxAgeInMinutes</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCache">_listsCache</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCacheLastUpdate">_listsCacheLastUpdate</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Inbox">Inbox</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#List">List</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Reminder">Reminder</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Task">Task</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#user">user</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-TickTick-TickTick.html#_checkListsCache">_checkListsCache</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#_setUserInfo">_setUserInfo</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#changeCacheMaxAge">changeCacheMaxAge</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#createReminder">createReminder</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getListByName">getListByName</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getLists">getLists</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#login">login</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-Authentication.html">Authentication</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Authentication.html#~assertLogin">assertLogin</a></li><li data-type='method'><a href="module-Authentication.html#~loginEmail">loginEmail</a></li><li data-type='method'><a href="module-Authentication.html#~loginFacebook">loginFacebook</a></li><li data-type='method'><a href="module-Authentication.html#~loginGoogle">loginGoogle</a></li><li data-type='method'><a href="module-Authentication.html#~loginTwitter">loginTwitter</a></li></ul></li><li><a href="module-Connection.html">Connection</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Connection.html#~baseUri">baseUri</a></li><li data-type='member'><a href="module-Connection.html#~cookieJar">cookieJar</a></li><li data-type='member'><a href="module-Connection.html#~middlewares">middlewares</a></li><li data-type='member'><a href="module-Connection.html#~rpDefaults">rpDefaults</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Connection.html#~addMiddleware">addMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~clearMiddlewares">clearMiddlewares</a></li><li data-type='method'><a href="module-Connection.html#~removeMiddleware">removeMiddleware</a></li><li data-type='method'><a href="module-Connection.html#~request">request</a></li></ul></li><li><a href="module-Models.html">Models</a></li><li><a href="module-TickTick.html">TickTick</a></li><li><a href="module-Utils.html">Utils</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Utils.html#~formatDate">formatDate</a></li><li data-type='method'><a href="module-Utils.html#~validateCache">validateCache</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">List</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    <span class="creds">
+      
+
+      
+    </span>
+
+    <hr>
+
+    
+        <h2>
+            <span class="ancestors"><a href="module-Models.html">Models</a>~</span>
+        
+        List
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+
+    
+
+
+<div class="group" id="List">
+
+
+    <h4 class="name"><span class="type-signature"></span>new <b>List</b><span class="signature">(<span class="sig-params">properties</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>List model</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters</h5>
+    
+
+<div class="params">
+    
+
+    
+        <span class="name">properties</span><span class="type"><span class="param-type">:Object</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>Properties of the <code>List</code></p>
+        <div class="child-params">
+          
+
+<div class="params">
+    
+
+    
+        <span class="name"><span class="obj-tree">properties.</span>id</span><span class="type"><span class="param-type">:string</span></span>
+    
+
+    
+        <span class="default">
+        
+            = ObjectID()
+        
+        </span>
+    
+
+    
+        <span class="attributes">
+        
+            (optional)<br>
+        
+
+        
+
+        
+        </span>
+    
+
+    <div class="description last"><p>Object ID of the list, only defined when this is an
+instantiation of a pre-existing list. On new lists this must be empty in order
+to generate a new ObjectID</p></div>
+
+    
+
+    
+        <span class="name"><span class="obj-tree">properties.</span>name</span><span class="type"><span class="param-type">:string</span></span>
+    
+
+    
+        <span class="default">
+        
+        </span>
+    
+
+    
+
+    <div class="description last"><p>Name of the list</p></div>
+
+    
+
+    
+        <span class="name"><span class="obj-tree">properties.</span>isOwner</span><span class="type"><span class="param-type">:bool</span></span>
+    
+
+    
+        <span class="default">
+        
+            = True
+        
+        </span>
+    
+
+    
+        <span class="attributes">
+        
+            (optional)<br>
+        
+
+        
+
+        
+        </span>
+    
+
+    <div class="description last"><p>Whether the authenticated user is the owner of the
+list,defaults to true when creating new lists.</p></div>
+
+    
+
+    
+        <span class="name"><span class="obj-tree">properties.</span>color</span><span class="type"><span class="param-type">:string</span></span>
+    
+
+    
+        <span class="default">
+        
+        </span>
+    
+
+    
+        <span class="attributes">
+        
+            (optional)<br>
+        
+
+        
+
+        
+        </span>
+    
+
+    <div class="description last"><p>Color of the list</p></div>
+
+    
+
+    
+        <span class="name"><span class="obj-tree">properties.</span>closed</span><span class="type"><span class="param-type">:bool</span></span>
+    
+
+    
+        <span class="default">
+        
+            = False
+        
+        </span>
+    
+
+    
+        <span class="attributes">
+        
+            (optional)<br>
+        
+
+        
+
+        
+        </span>
+    
+
+    <div class="description last"><p>Whether the list is closed</p></div>
+
+    
+
+    
+        <span class="name"><span class="obj-tree">properties.</span>muted</span><span class="type"><span class="param-type">:muted</span></span>
+    
+
+    
+        <span class="default">
+        
+            = False
+        
+        </span>
+    
+
+    
+        <span class="attributes">
+        
+            (optional)<br>
+        
+
+        
+
+        
+        </span>
+    
+
+    <div class="description last"><p>Whether the list is muted</p></div>
+
+    
+
+    
+        <span class="name"><span class="obj-tree">properties.</span>groupId</span><span class="type"><span class="param-type">:string</span></span>
+    
+
+    
+        <span class="default">
+        
+        </span>
+    
+
+    
+        <span class="attributes">
+        
+            (optional)<br>
+        
+
+        
+
+        
+        </span>
+    
+
+    <div class="description last"><p>If the list belongs to a group, this is its id.</p></div>
+
+    
+</div>
+
+        </div>
+    </div>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="list.js.html">list.js</a>, <a href="list.js.html#line22">line 22</a></div>
+
+
+</div>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+
+    
+
+
+<div class="group" id="._getAll">
+
+
+    <h4 class="name"><span class="type-signature">(private, static) </span><b>_getAll</b><span class="signature">(<span class="sig-params"></span>)</span><span class="type-signature">:Array.&lt;List></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Retrieves all lists of the authenticated user from TickTick</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        <span class="param-type">:Array.&lt;List></span>
+    </dd>
+</dl>
+
+<div class="param-desc">
+    <p>Lists of the authenticated user</p>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="list.js.html">list.js</a>, <a href="list.js.html#line37">line 37</a></div>
+
+
+</div>
+
+        
+            
+
+
+    
+
+
+<div class="group" id="addSimpleTask">
+
+
+    <h4 class="name"><span class="type-signature"></span><b>addSimpleTask</b><span class="signature">(<span class="sig-params">title<span class="params-divider">, </span>content<span class="signature-attributes">opt</span><span class="params-divider">, </span>date<span class="signature-attributes">opt</span><span class="params-divider">, </span>isAllDay<span class="signature-attributes">opt</span><span class="params-divider">, </span>reminders</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Adds a task to the current List</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters</h5>
+    
+
+<div class="params">
+    
+
+    
+        <span class="name">title</span><span class="type"><span class="param-type">:string</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>Title of the task</p></div>
+
+    
+
+    
+        <span class="name">content</span><span class="type"><span class="param-type">:string</span></span>
+    
+
+    
+
+    
+        <span class="attributes">
+        
+            (optional)<br>
+        
+
+        
+
+        
+        </span>
+    
+
+    <div class="description last"><p>Description of the task</p></div>
+
+    
+
+    
+        <span class="name">date</span><span class="type"><span class="param-type">:Date</span></span>
+    
+
+    
+
+    
+        <span class="attributes">
+        
+            (optional)<br>
+        
+
+        
+
+        
+        </span>
+    
+
+    <div class="description last"><p>Date assigned to the task</p></div>
+
+    
+
+    
+        <span class="name">isAllDay</span><span class="type"><span class="param-type">:boolean</span></span>
+    
+
+    
+
+    
+        <span class="attributes">
+        
+            (optional)<br>
+        
+
+        
+
+        
+        </span>
+    
+
+    <div class="description last"><p>Whether the task is assigned for date's entire day or the
+specifc time</p></div>
+
+    
+
+    
+        <span class="name">reminders</span><span class="type"><span class="param-type">:Array.&lt;Reminder></span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>Reminders of the task</p></div>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="list.js.html">list.js</a>, <a href="list.js.html#line58">line 58</a></div>
+
+
+</div>
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc 3.5.5</a> on 1/15/2019 using the <a href="https://github.com/Grafluxe/boxy-jsdoc-template" target="_blank">boxy-jsdoc-template</a> theme.
+</footer>
+
+<script src="scripts/prettify/prettify.js"></script>
+<script src="scripts/prettify/lang-css.js"></script>
+<script src="scripts/script.js"></script>
+
+</body>
+</html>
