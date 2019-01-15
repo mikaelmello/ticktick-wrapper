@@ -4,15 +4,59 @@ const auth = require('./auth');
 const List = require('./list');
 const Reminder = require('./reminder');
 
+/**
+ * Wrapper's main class
+ * @class
+ * @constructor
+ */
 function TickTick() {
   conn.addMiddleware(auth.assertLogin);
+
+  /**
+   * Information about the authenticated user
+   * @member {Object}
+   * @property {string} username - Authenticated user's username
+   * @property {string} id - Account ID of the authenticated user
+   * @property {boolean} pro - Whether the authenticated user has a pro account
+   */
   this.user = {};
 
+  /**
+   * Inbox list of the authenticated user
+   * @member {List|undefined}
+   */
+  this.Inbox = undefined;
+
+  /**
+   * Object with cached user lists where the key is the name of the list
+   * @private
+   * @member {Object.<string, List>}
+   */
   this._listsCache = {};
+
+  /**
+   * Last time {@link TickTick#_listsCache} was updated
+   * @private
+   * @member {Date}
+   */
   this._listsCacheLastUpdate = undefined;
+
+  /**
+   * Max minutes the cache can live before being refreshed
+   * @private
+   * @member {Number}
+   */
   this._cacheMaxAgeInMinutes = 10;
 }
 
+/**
+ * Authenticate with TickTick and store the session info for future calls.
+ * This method must be called *before* any other.
+ * @param {Object} options - Login options
+ * @param {Object=} options.email - Object that must exist if the login is done via email
+ * @param {string} options.email.username - Your TickTick's account e-mail
+ * @param {string} options.email.password - Your TickTick's account password
+ */
 TickTick.prototype.login = async function _login(options) {
   if (!options) {
     throw new auth.errors.NoLoginProviderSelectedError();
@@ -38,6 +82,15 @@ TickTick.prototype.login = async function _login(options) {
   }
 };
 
+/**
+ * Stores local information about the authenticated user
+ * @private
+ * @param {Object} userInfo - User Innformation
+ * @param {string} userInfo.inboxId - Id of the authenticated ser's Inbox list
+ * @param {string} userInfo.username - Authenticated user's username
+ * @param {string} userInfo.id - Account ID of the authenticated user
+ * @param {boolean} userInfo.pro - Whether the authenticated user has a pro account
+ */
 TickTick.prototype._setUserInfo = function _setUserInfo(userInfo) {
   this.user.username = userInfo.username;
   this.user.isPro = userInfo.pro;
@@ -48,6 +101,10 @@ TickTick.prototype._setUserInfo = function _setUserInfo(userInfo) {
   });
 };
 
+/**
+ * Update the max age a cached object can have before being refreshed
+ * @param {Number} minutes - Maximum age in minutes
+ */
 TickTick.prototype.changeCacheMaxAge = function _changeCacheMaxAge(minutes) {
   this._cacheMaxAgeInMinutes = minutes;
 };
@@ -56,6 +113,11 @@ TickTick.prototype.changeCacheMaxAge = function _changeCacheMaxAge(minutes) {
  * List-related methods
  */
 
+/**
+ * Verify if the current lists cache has not expired. If it has expired, it will update
+ * TickTick's list properties
+ * @private
+ */
 TickTick.prototype._checkListsCache = async function _checkListsCache() {
   if (!utils.validateCache(this._listsCacheLastUpdate, this._cacheMaxAgeInMinutes)) {
     const listsArray = await List._getAll();
@@ -68,6 +130,12 @@ TickTick.prototype._checkListsCache = async function _checkListsCache() {
   }
 };
 
+/**
+ * Gets a map of all lists available to the authenticated user
+ * @param {boolean=} forceRefresh - Whether to force a refresh of the cached lists
+ * @return {Object.<string, List>} Object with cached user lists where the key is
+ * the name of the list
+ */
 TickTick.prototype.getLists = async function _getLists(forceRefresh) {
   if (forceRefresh === true) {
     this._listsCacheLastUpdate = undefined;
@@ -77,6 +145,13 @@ TickTick.prototype.getLists = async function _getLists(forceRefresh) {
   return this._listsCache;
 };
 
+/**
+ * Gets a list with a specific name
+ * @param {string} name - The name of the list
+ * @param {boolean=} forceRefresh - Whether to force a refresh of the cached lists
+ * @return {List|undefined}} - {@link List} object or undefined if a list with the
+ * provided name does not exist
+ */
 TickTick.prototype.getListByName = async function _getListByName(name, forceRefresh) {
   if (forceRefresh === true) {
     this._listsCacheLastUpdate = undefined;
@@ -91,6 +166,14 @@ TickTick.prototype.getListByName = async function _getListByName(name, forceRefr
  * Reminder-related properties
  */
 
+/**
+  * Creates a reminder object to be used when creating a {@link Task}. The reminder
+  * will go off at {quantity} {units} before the date set for the {@link Task}.
+  * If quantity equals to 0, an instant reminder will be returned
+  * @param {Number} quantity - Quantity of unit.
+  * @param {Reminder.TimeUnit} unit - Unit of time
+  * @return {Reminder} Reminder object that can be used to create a {@link Task}.
+  */
 TickTick.prototype.createReminder = function _createReminder(quantity, unit) {
   return Reminder._create(quantity, unit);
 };
