@@ -67,6 +67,42 @@ List.prototype.addSimpleTask = async function _addST(title, content, date, isAll
   task.save();
 };
 
+/**
+ * Get all tasks from the list that are uncompleted
+ * @private
+ * @returns {Task[]} Tasks with status equal to TODO
+ */
+List.prototype.getTodoTasks = async function _getTodoTasks(/* filter */) {
+  const options = {
+    uri: `${conn.baseUri}/project/${this.id}/tasks`,
+    json: true,
+  };
+  const rawTasks = await conn.request(options);
+  const objectTasks = rawTasks.map(task => new Task(task));
+
+  // For some reason some completed tasks are included in the response,
+  // we must filter them out
+  return objectTasks.filter(task => task.status === Task.Status.TODO);
+};
+
+/**
+ * Get all tasks from the list that are completed
+ * @private
+ * @returns {Task[]} Tasks with status equal to COMPLETED
+ */
+List.prototype.getCompletedTasks = async function _getCompletedTasks(/* filter */) {
+  const options = {
+    uri: `${conn.baseUri}/project/${this.id}/completed`,
+    json: true,
+  };
+  const rawTasks = await conn.request(options);
+  const objectTasks = rawTasks.map(task => new Task(task));
+
+  // For some reason some completed tasks are included in the response,
+  // we must filter them out
+  return objectTasks.filter(task => task.status === Task.Status.COMPLETED);
+};
+
 module.exports = List;
 
 // List structure from api response
