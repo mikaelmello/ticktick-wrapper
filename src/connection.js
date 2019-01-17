@@ -1,7 +1,10 @@
-/** @module Connection */
-
 const rp = require('request-promise');
 
+/**
+ * Class wih connection config
+ * @class
+ * @private
+ */
 function Connection() {
   /**
    * Base URI for TickTick API v2
