@@ -1,5 +1,7 @@
 /** @module Utils */
 
+const conn = require('./connection');
+
 /**
  * Checkes whether the current cache has not expired based on its last update date and its max
  * age (in minutes)
@@ -9,7 +11,7 @@
  * invalidated
  * @returns {boolean} Whether the cache is still valid
  */
-const validateCache = function _validateCache(date, maxAgeInMinutes) {
+const validateCache = function _validateCache(date) {
   // check if date is valid via duck typing
   // date instanceof Date will return true for invalid dates
   // e.g. new Date('random_string')
@@ -19,7 +21,7 @@ const validateCache = function _validateCache(date, maxAgeInMinutes) {
 
   const then = date.getTime();
   const now = Date.now();
-  const maxDifference = maxAgeInMinutes * 60 * 1000; // difference in milliseconds
+  const maxDifference = conn._cacheMaxAgeInMinutes * 60 * 1000; // difference in milliseconds
   const difference = now - then;
 
   return difference < maxDifference;

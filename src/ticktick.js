@@ -42,13 +42,6 @@ function TickTick() {
    * @member {Date}
    */
   this._listsCacheLastUpdate = undefined;
-
-  /**
-   * Max minutes the cache can live before being refreshed
-   * @private
-   * @member {Number}
-   */
-  this._cacheMaxAgeInMinutes = 10;
 }
 
 /**
@@ -108,7 +101,7 @@ TickTick.prototype._setUserInfo = function _setUserInfo(userInfo) {
  * @param {Number} minutes - Maximum age in minutes
  */
 TickTick.prototype.changeCacheMaxAge = function _changeCacheMaxAge(minutes) {
-  this._cacheMaxAgeInMinutes = minutes;
+  conn._cacheMaxAgeInMinutes = minutes;
 };
 
 /**
@@ -121,7 +114,7 @@ TickTick.prototype.changeCacheMaxAge = function _changeCacheMaxAge(minutes) {
  * @private
  */
 TickTick.prototype._checkListsCache = async function _checkListsCache() {
-  if (!utils.validateCache(this._listsCacheLastUpdate, this._cacheMaxAgeInMinutes)) {
+  if (!utils.validateCache(this._listsCacheLastUpdate)) {
     const listsArray = await List._getAll();
     for (let i = 0; i < listsArray.length; i += 1) {
       const current = listsArray[i];
