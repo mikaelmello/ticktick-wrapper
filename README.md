@@ -15,14 +15,13 @@ npm install -s ticktick-wrapper
 ### Example
 
 ```
-require('dotenv').config();
 const ticktick = require('ticktick-wrapper');
 
 const main = async () => {
   await ticktick.login({
     email: {
-      username: process.env.EMAIL_LOGIN_USERNAME,
-      password: process.env.EMAIL_LOGIN_PASSWORD,
+      username: 'username',
+      password: 'password',
     },
   });
 
