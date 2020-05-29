@@ -29,6 +29,7 @@ const utils = require('./utils');
  * @param {Task.Kind} [properties.kind=Task.Kind.TEXT] - Task kind
  * @param {string=} properties.creator - User id of the task creator
  * @param {string=} properties.listId - List in which the task belongs
+ * @param {string=} properties.repeatFlag - A set of flags that make a task repeatable
  */
 function Task(properties) {
   this.id = properties.id || ObjectID();
@@ -48,6 +49,7 @@ function Task(properties) {
   this.creator = properties.creator; // || loggedinUserId
   this.projectId = properties.projectId || properties.listId; // || inbox
   this.listId = properties.projectId || properties.listId; // || inbox
+  this.repeatFlag = properties.repeatFlag;
 }
 
 /**
@@ -108,6 +110,22 @@ Task.prototype.save = async function _save() {
   const options = {
     method: 'POST',
     uri: `${conn.baseUri}/task`,
+    json: true,
+    body: this,
+  };
+
+  return conn.request(options);
+};
+
+/**
+ * Update a task in TickTick by sending a request to TickTick's API using the task ID
+ * @private
+ * @returns Request response
+ */
+Task.prototype.update = async function _update() {
+  const options = {
+    method: 'PUT',
+    uri: `${conn.baseUri}/task/${this.id}`,
     json: true,
     body: this,
   };
