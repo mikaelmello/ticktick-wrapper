@@ -10,7 +10,7 @@
     "docs-private": "rm -rf docs && jsdoc index.js src --private -d docs",
     "release-check-files": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
     "patch-release": "npm version patch -m \"release: v%s\" && npm publish && git push --follow-tags",
-    "minor-release": "npm version patch -m \"release: v%s\" && npm publish && git push --follow-tags"
+    "minor-release": "npm version minor -m \"release: v%s\" && npm publish && git push --follow-tags"
   },
   "repository": {
     "type": "git",
