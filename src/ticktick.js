@@ -3,6 +3,8 @@
 const conn = require('./connection');
 const utils = require('./utils');
 const auth = require('./auth');
+const tasks = require('./tasks');
+const lists = require('./lists');
 const List = require('./list');
 const Task = require('./task');
 const Reminder = require('./reminder');
@@ -115,7 +117,7 @@ TickTick.prototype.changeCacheMaxAge = function _changeCacheMaxAge(minutes) {
  */
 TickTick.prototype._checkListsCache = async function _checkListsCache() {
   if (!utils.validateCache(this._listsCacheLastUpdate)) {
-    const listsArray = await List._getAll();
+    const listsArray = await lists.getAll();
     for (let i = 0; i < listsArray.length; i += 1) {
       const current = listsArray[i];
       this._listsCache[current.name] = current;
@@ -174,6 +176,12 @@ TickTick.prototype.createReminder = function _createReminder(quantity, unit) {
 };
 
 /**
+ * Access to connection
+ * @private
+ */
+TickTick.prototype._conn = conn;
+
+/**
  * Access to List model
  */
 TickTick.prototype.List = List;
@@ -187,6 +195,16 @@ TickTick.prototype.Task = Task;
  * Access to Reminder model
  */
 TickTick.prototype.Reminder = Reminder;
+
+/**
+ * Access to Tasks methods
+ */
+TickTick.prototype.tasks = tasks;
+
+/**
+ * Access to Lists methods
+ */
+TickTick.prototype.lists = lists;
 
 const tickTick = new TickTick();
 module.exports = tickTick;
