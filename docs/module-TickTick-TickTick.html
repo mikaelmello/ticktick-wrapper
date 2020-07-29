@@ -2,31 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>TickTick - Documentation</title>
+    <title>JSDoc: Class: TickTick</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
+
 <body>
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <span class="navicon"></span>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Connection.html">Connection</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="Connection.html#_cacheMaxAgeInMinutes">_cacheMaxAgeInMinutes</a></li><li data-type='member'><a href="Connection.html#baseUri">baseUri</a></li><li data-type='member'><a href="Connection.html#cookieJar">cookieJar</a></li><li data-type='member'><a href="Connection.html#middlewares">middlewares</a></li><li data-type='member'><a href="Connection.html#requestDefault">requestDefault</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="Connection.html#addMiddleware">addMiddleware</a></li><li data-type='method'><a href="Connection.html#clearMiddlewares">clearMiddlewares</a></li><li data-type='method'><a href="Connection.html#removeMiddleware">removeMiddleware</a></li><li data-type='method'><a href="Connection.html#request">request</a></li></ul></li><li><a href="module-Models-List.html">List</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-List.html#._getAll">_getAll</a></li><li data-type='method'><a href="module-Models-List.html#addSimpleTask">addSimpleTask</a></li><li data-type='method'><a href="module-Models-List.html#getCompletedTasks">getCompletedTasks</a></li><li data-type='method'><a href="module-Models-List.html#getTodoTasks">getTodoTasks</a></li></ul></li><li><a href="module-Models-Reminder.html">Reminder</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Reminder.html#.TimeUnit">TimeUnit</a></li></ul></li><li><a href="module-Models-Task.html">Task</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Task.html#.Kind">Kind</a></li><li data-type='member'><a href="module-Models-Task.html#.Priority">Priority</a></li><li data-type='member'><a href="module-Models-Task.html#.Status">Status</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-Task.html#save">save</a></li><li data-type='method'><a href="module-Models-Task.html#update">update</a></li></ul></li><li><a href="module-TickTick-TickTick.html">TickTick</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-TickTick-TickTick.html#_conn">_conn</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCache">_listsCache</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCacheLastUpdate">_listsCacheLastUpdate</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Inbox">Inbox</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#List">List</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#lists">lists</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Reminder">Reminder</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Task">Task</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#tasks">tasks</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#user">user</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-TickTick-TickTick.html#_checkListsCache">_checkListsCache</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#_setUserInfo">_setUserInfo</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#changeCacheMaxAge">changeCacheMaxAge</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#createReminder">createReminder</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getListByName">getListByName</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getLists">getLists</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#login">login</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-Authentication.html">Authentication</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Authentication.html#~assertLogin">assertLogin</a></li><li data-type='method'><a href="module-Authentication.html#~loginEmail">loginEmail</a></li><li data-type='method'><a href="module-Authentication.html#~loginFacebook">loginFacebook</a></li><li data-type='method'><a href="module-Authentication.html#~loginGoogle">loginGoogle</a></li><li data-type='method'><a href="module-Authentication.html#~loginTwitter">loginTwitter</a></li></ul></li><li><a href="module-Models.html">Models</a></li><li><a href="module-Services.html">Services</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Services.html#~getUncompleted">getUncompleted</a></li></ul></li><li><a href="module-TickTick.html">TickTick</a></li><li><a href="module-Utils.html">Utils</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Utils.html#~formatDate">formatDate</a></li><li data-type='method'><a href="module-Utils.html#~validateCache">validateCache</a></li></ul></li></ul>
-</nav>
-
 <div id="main">
-    
-    <h1 class="page-title">TickTick</h1>
-    
+
+    <h1 class="page-title">Class: TickTick</h1>
 
     
 
@@ -36,20 +27,9 @@
 <section>
 
 <header>
-    <span class="creds">
-      
-
-      
-    </span>
-
-    <hr>
-
     
-        <h2>
-            <span class="ancestors"><a href="module-TickTick.html">TickTick</a>~</span>
-        
-        TickTick
-        </h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>
+            <span class="ancestors"><a href="module-TickTick.html">TickTick</a>~</span>TickTick<span class="signature">()</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -59,21 +39,18 @@
     
         
 
-
     
 
-
-<div class="group" id="TickTick">
-
-
-    <h4 class="name"><span class="type-signature"></span>new <b>TickTick</b><span class="signature">(<span class="sig-params"></span>)</span><span class="type-signature"></span></h4>
+    
+    <h4 class="name" id="TickTick"><span class="type-signature"></span>new TickTick<span class="signature">()</span><span class="type-signature"></span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Wrapper's main class</p>
+    Wrapper's main class
 </div>
 
 
@@ -88,6 +65,45 @@
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
@@ -106,10 +122,7 @@
 
 
 
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line16">line 16</a></div>
 
-
-</div>
 
     
     </div>
@@ -120,7 +133,9 @@
 
     
 
-     
+    
+
+    
 
     
 
@@ -129,16 +144,13 @@
 
         
             
-
-<div class="group" id="_conn">
-
-<h4 class="name"><span class="type-signature">(private) </span>_conn<span class="type-signature"></span></h4>
+<h4 class="name" id="_conn"><span class="type-signature">(private) </span>_conn<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Access to connection</p>
+    Access to connection
 </div>
 
 
@@ -147,122 +159,279 @@
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line182">line 182</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
 
 
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line182">line 182</a></div>
-
-
-</div>
 
         
             
-
-<div class="group" id="_listsCache">
-
-<h4 class="name"><span class="type-signature">(private) </span>_listsCache<span class="type-signature">:Object.&lt;string, List></span></h4>
+<h4 class="name" id="_listsCache"><span class="type-signature">(private) </span>_listsCache<span class="type-signature"> :Object.&lt;string, List></span></h4>
 
 
 
 
 <div class="description">
-    <p>Object with cached user lists where the key is the name of the list</p>
+    Object with cached user lists where the key is the name of the list
 </div>
 
 
 
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object.&lt;string, List></span>
+
+
+        </li>
+    </ul>
 
 
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line39">line 39</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
 
 
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line39">line 39</a></div>
-
-
-</div>
 
         
             
-
-<div class="group" id="_listsCacheLastUpdate">
-
-<h4 class="name"><span class="type-signature">(private) </span>_listsCacheLastUpdate<span class="type-signature">:Date</span></h4>
+<h4 class="name" id="_listsCacheLastUpdate"><span class="type-signature">(private) </span>_listsCacheLastUpdate<span class="type-signature"> :Date</span></h4>
 
 
 
 
 <div class="description">
-    <p>Last time <code>TickTick#_listsCache</code> was updated</p>
+    Last time TickTick#_listsCache was updated
 </div>
 
 
 
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Date</span>
+
+
+        </li>
+    </ul>
 
 
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line46">line 46</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
 
 
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line46">line 46</a></div>
-
-
-</div>
 
         
             
-
-<div class="group" id="Inbox">
-
-<h4 class="name"><span class="type-signature"></span>Inbox<span class="type-signature">:List|undefined</span></h4>
+<h4 class="name" id="Inbox"><span class="type-signature"></span>Inbox<span class="type-signature"> :List|undefined</span></h4>
 
 
 
 
 <div class="description">
-    <p>Inbox list of the authenticated user</p>
+    Inbox list of the authenticated user
 </div>
 
 
 
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">List</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+        </li>
+    </ul>
 
 
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
 
 
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line32">line 32</a></div>
-
-
-</div>
 
         
             
-
-<div class="group" id="List">
-
-<h4 class="name"><span class="type-signature"></span>List<span class="type-signature"></span></h4>
+<h4 class="name" id="List"><span class="type-signature"></span>List<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Access to List model</p>
+    Access to List model
 </div>
 
 
@@ -271,29 +440,60 @@
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line187">line 187</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
 
 
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line187">line 187</a></div>
-
-
-</div>
 
         
             
-
-<div class="group" id="lists">
-
-<h4 class="name"><span class="type-signature"></span>lists<span class="type-signature"></span></h4>
+<h4 class="name" id="lists"><span class="type-signature"></span>lists<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Access to Lists methods</p>
+    Access to Lists methods
 </div>
 
 
@@ -302,29 +502,60 @@
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line207">line 207</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
 
 
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line207">line 207</a></div>
-
-
-</div>
 
         
             
-
-<div class="group" id="Reminder">
-
-<h4 class="name"><span class="type-signature"></span>Reminder<span class="type-signature"></span></h4>
+<h4 class="name" id="Reminder"><span class="type-signature"></span>Reminder<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Access to Reminder model</p>
+    Access to Reminder model
 </div>
 
 
@@ -333,29 +564,60 @@
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line197">line 197</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
 
 
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line197">line 197</a></div>
-
-
-</div>
 
         
             
-
-<div class="group" id="Task">
-
-<h4 class="name"><span class="type-signature"></span>Task<span class="type-signature"></span></h4>
+<h4 class="name" id="Task"><span class="type-signature"></span>Task<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Access to Task model</p>
+    Access to Task model
 </div>
 
 
@@ -364,29 +626,60 @@
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line192">line 192</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
 
 
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line192">line 192</a></div>
-
-
-</div>
 
         
             
-
-<div class="group" id="tasks">
-
-<h4 class="name"><span class="type-signature"></span>tasks<span class="type-signature"></span></h4>
+<h4 class="name" id="tasks"><span class="type-signature"></span>tasks<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Access to Tasks methods</p>
+    Access to Tasks methods
 </div>
 
 
@@ -395,94 +688,220 @@
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line202">line 202</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
 
 
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line202">line 202</a></div>
-
-
-</div>
 
         
             
-
-<div class="group" id="user">
-
-<h4 class="name"><span class="type-signature"></span>user<span class="type-signature">:Object</span></h4>
+<h4 class="name" id="user"><span class="type-signature"></span>user<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>Information about the authenticated user</p>
+    Information about the authenticated user
 </div>
 
 
 
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
 
 
-    <h5 class="subsection-title">Properties</h5>
+        </li>
+    </ul>
 
-    
 
-<div class="props">
-    
 
-    
-        <span class="name">username</span><span class="type"><span class="param-type">:string</span></span>
-    
 
-    
 
-    
-
-    <div class="description last"><p>Authenticated user's username</p></div>
+    <h5 class="subsection-title">Properties:</h5>
 
     
 
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
-        <span class="name">id</span><span class="type"><span class="param-type">:string</span></span>
+
+        <tr>
+            
+                <td class="name"><code>username</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Authenticated user's username</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Account ID of the authenticated user</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pro</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Whether the authenticated user has a pro account</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
     
 
     
 
     
 
-    <div class="description last"><p>Account ID of the authenticated user</p></div>
-
-    
-
-    
-        <span class="name">pro</span><span class="type"><span class="param-type">:boolean</span></span>
     
 
     
 
     
 
-    <div class="description last"><p>Whether the authenticated user has a pro account</p></div>
+    
 
     
-</div>
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
 
 
-
-
-
-
-
-
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line26">line 26</a></div>
-
-
-</div>
 
         
     
@@ -493,22 +912,19 @@
         
             
 
-
     
 
-
-<div class="group" id="_checkListsCache">
-
-
-    <h4 class="name"><span class="type-signature">(private) </span><b>_checkListsCache</b><span class="signature">(<span class="sig-params"></span>)</span><span class="type-signature"></span></h4>
+    
+    <h4 class="name" id="_checkListsCache"><span class="type-signature">(private) </span>_checkListsCache<span class="signature">()</span><span class="type-signature"></span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Verify if the current lists cache has not expired. If it has expired, it will update
-TickTick's list properties</p>
+    Verify if the current lists cache has not expired. If it has expired, it will update
+TickTick's list properties
 </div>
 
 
@@ -523,6 +939,45 @@ TickTick's list properties</p>
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line118">line 118</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
@@ -541,29 +996,23 @@ TickTick's list properties</p>
 
 
 
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line118">line 118</a></div>
 
-
-</div>
 
         
             
 
-
     
 
-
-<div class="group" id="_setUserInfo">
-
-
-    <h4 class="name"><span class="type-signature">(private) </span><b>_setUserInfo</b><span class="signature">(<span class="sig-params">userInfo</span>)</span><span class="type-signature"></span></h4>
+    
+    <h4 class="name" id="_setUserInfo"><span class="type-signature">(private) </span>_setUserInfo<span class="signature">(userInfo)</span><span class="type-signature"></span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Stores local information about the authenticated user</p>
+    Stores local information about the authenticated user
 </div>
 
 
@@ -574,81 +1023,216 @@ TickTick's list properties</p>
 
 
 
-    <h5>Parameters</h5>
+    <h5>Parameters:</h5>
     
 
-<div class="params">
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>userInfo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">User Innformation
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>inboxId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Id of the authenticated ser's Inbox list</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>username</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Authenticated user's username</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Account ID of the authenticated user</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pro</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Whether the authenticated user has a pro account</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
     
 
     
-        <span class="name">userInfo</span><span class="type"><span class="param-type">:Object</span></span>
+
+    
+
+    
+
     
 
     
 
     
 
-    <div class="description last"><p>User Innformation</p>
-        <div class="child-params">
-          
-
-<div class="params">
-    
-
-    
-        <span class="name"><span class="obj-tree">userInfo.</span>inboxId</span><span class="type"><span class="param-type">:string</span></span>
     
 
     
 
     
 
-    <div class="description last"><p>Id of the authenticated ser's Inbox list</p></div>
-
-    
-
-    
-        <span class="name"><span class="obj-tree">userInfo.</span>username</span><span class="type"><span class="param-type">:string</span></span>
     
 
     
 
     
-
-    <div class="description last"><p>Authenticated user's username</p></div>
-
-    
-
-    
-        <span class="name"><span class="obj-tree">userInfo.</span>id</span><span class="type"><span class="param-type">:string</span></span>
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line91">line 91</a>
+    </li></ul></dd>
     
 
     
 
     
 
-    <div class="description last"><p>Account ID of the authenticated user</p></div>
-
     
-
-    
-        <span class="name"><span class="obj-tree">userInfo.</span>pro</span><span class="type"><span class="param-type">:boolean</span></span>
-    
-
-    
-
-    
-
-    <div class="description last"><p>Whether the authenticated user has a pro account</p></div>
-
-    
-</div>
-
-        </div>
-    </div>
-
-    
-</div>
+</dl>
 
 
 
@@ -668,34 +1252,22 @@ TickTick's list properties</p>
 
 
 
-
-
-
-
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line91">line 91</a></div>
-
-
-</div>
 
         
             
 
-
     
 
-
-<div class="group" id="changeCacheMaxAge">
-
-
-    <h4 class="name"><span class="type-signature"></span><b>changeCacheMaxAge</b><span class="signature">(<span class="sig-params">minutes</span>)</span><span class="type-signature"></span></h4>
+    
+    <h4 class="name" id="changeCacheMaxAge"><span class="type-signature"></span>changeCacheMaxAge<span class="signature">(minutes)</span><span class="type-signature"></span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Update the max age a cached object can have before being refreshed</p>
+    Update the max age a cached object can have before being refreshed
 </div>
 
 
@@ -706,24 +1278,98 @@ TickTick's list properties</p>
 
 
 
-    <h5>Parameters</h5>
+    <h5>Parameters:</h5>
     
 
-<div class="params">
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>minutes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Maximum age in minutes</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
     
 
     
-        <span class="name">minutes</span><span class="type"><span class="param-type">:Number</span></span>
+
+    
+
+    
+
     
 
     
 
     
 
-    <div class="description last"><p>Maximum age in minutes</p></div>
+    
 
     
-</div>
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line105">line 105</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
@@ -743,36 +1389,24 @@ TickTick's list properties</p>
 
 
 
-
-
-
-
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line105">line 105</a></div>
-
-
-</div>
 
         
             
 
-
     
 
-
-<div class="group" id="createReminder">
-
-
-    <h4 class="name"><span class="type-signature"></span><b>createReminder</b><span class="signature">(<span class="sig-params">quantity<span class="params-divider">, </span>unit</span>)</span><span class="type-signature">:Reminder</span></h4>
+    
+    <h4 class="name" id="createReminder"><span class="type-signature"></span>createReminder<span class="signature">(quantity, unit)</span><span class="type-signature"> &rarr; {Reminder}</span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Creates a reminder object to be used when creating a <code>Task</code>. The reminder
-will go off at {quantity} {units} before the date set for the <code>Task</code>.
-If quantity equals to 0, an instant reminder will be returned</p>
+    Creates a reminder object to be used when creating a Task. The reminder
+will go off at {quantity} {units} before the date set for the Task.
+If quantity equals to 0, an instant reminder will be returned
 </div>
 
 
@@ -783,103 +1417,178 @@ If quantity equals to 0, an instant reminder will be returned</p>
 
 
 
-    <h5>Parameters</h5>
+    <h5>Parameters:</h5>
     
 
-<div class="params">
-    
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-    
-        <span class="name">quantity</span><span class="type"><span class="param-type">:Number</span></span>
-    
-
-    
-
-    
-
-    <div class="description last"><p>Quantity of unit.</p></div>
-
-    
-
-    
-        <span class="name">unit</span><span class="type"><span class="param-type">:Reminder.TimeUnit</span></span>
-    
-
-    
-
-    
-
-    <div class="description last"><p>Unit of time</p></div>
-
-    
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns</h5>
+        <th>Type</th>
 
         
 
+        
 
-<dl class="param-type">
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>quantity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Quantity of unit.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>unit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Reminder.TimeUnit</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Unit of time</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line174">line 174</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Reminder object that can be used to create a Task.
+</div>
+
+
+
+<dl>
     <dt>
         Type
     </dt>
     <dd>
-        <span class="param-type">:Reminder</span>
+        
+<span class="param-type">Reminder</span>
+
+
     </dd>
 </dl>
-
-<div class="param-desc">
-    <p>Reminder object that can be used to create a <code>Task</code>.</p>
-</div>
-
 
     
 
 
 
 
-
-
-
-
-
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line174">line 174</a></div>
-
-
-</div>
 
         
             
 
-
     
 
-
-<div class="group" id="getListByName">
-
-
-    <h4 class="name"><span class="type-signature"></span><b>getListByName</b><span class="signature">(<span class="sig-params">name<span class="params-divider">, </span>forceRefresh<span class="signature-attributes">opt</span></span>)</span><span class="type-signature">:List|undefined</span></h4>
+    
+    <h4 class="name" id="getListByName"><span class="type-signature"></span>getListByName<span class="signature">(name, forceRefresh<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {List|undefined}</span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Gets a list with a specific name</p>
+    Gets a list with a specific name
 </div>
 
 
@@ -890,114 +1599,202 @@ If quantity equals to 0, an instant reminder will be returned</p>
 
 
 
-    <h5>Parameters</h5>
+    <h5>Parameters:</h5>
     
 
-<div class="params">
-    
-
-    
-        <span class="name">name</span><span class="type"><span class="param-type">:string</span></span>
-    
-
-    
-
-    
-
-    <div class="description last"><p>The name of the list</p></div>
-
-    
-
-    
-        <span class="name">forceRefresh</span><span class="type"><span class="param-type">:boolean</span></span>
-    
-
-    
-
-    
-        <span class="attributes">
+<table class="params">
+    <thead>
+    <tr>
         
-            (optional)<br>
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
         
 
         
 
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The name of the list</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>forceRefresh</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Whether to force a refresh of the cached lists</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line152">line 152</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
         
-        </span>
-    
-
-    <div class="description last"><p>Whether to force a refresh of the cached lists</p></div>
-
-    
+<div class="param-desc">
+    } List object or undefined if a list with the
+provided name does not exist
 </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns</h5>
-
-        
-
-
-<dl class="param-type">
+<dl>
     <dt>
         Type
     </dt>
     <dd>
-        <span class="param-type">:List|undefined</span>
+        
+<span class="param-type">List</span>
+|
+
+<span class="param-type">undefined</span>
+
+
     </dd>
 </dl>
-
-<div class="param-desc">
-    <p>} <code>List</code> object or undefined if a list with the
-provided name does not exist</p>
-</div>
-
 
     
 
 
 
 
-
-
-
-
-
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line152">line 152</a></div>
-
-
-</div>
 
         
             
 
-
     
 
-
-<div class="group" id="getLists">
-
-
-    <h4 class="name"><span class="type-signature"></span><b>getLists</b><span class="signature">(<span class="sig-params">forceRefresh<span class="signature-attributes">opt</span></span>)</span><span class="type-signature">:Object.&lt;string, List></span></h4>
+    
+    <h4 class="name" id="getLists"><span class="type-signature"></span>getLists<span class="signature">(forceRefresh<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object.&lt;string, List>}</span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Gets a map of all lists available to the authenticated user</p>
+    Gets a map of all lists available to the authenticated user
 </div>
 
 
@@ -1008,103 +1805,169 @@ provided name does not exist</p>
 
 
 
-    <h5>Parameters</h5>
+    <h5>Parameters:</h5>
     
 
-<div class="params">
-    
-
-    
-        <span class="name">forceRefresh</span><span class="type"><span class="param-type">:boolean</span></span>
-    
-
-    
-
-    
-        <span class="attributes">
+<table class="params">
+    <thead>
+    <tr>
         
-            (optional)<br>
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
         
 
         
 
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>forceRefresh</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Whether to force a refresh of the cached lists</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line136">line 136</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
         
-        </span>
-    
-
-    <div class="description last"><p>Whether to force a refresh of the cached lists</p></div>
-
-    
+<div class="param-desc">
+    Object with cached user lists where the key is
+the name of the list
 </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns</h5>
-
-        
-
-
-<dl class="param-type">
+<dl>
     <dt>
         Type
     </dt>
     <dd>
-        <span class="param-type">:Object.&lt;string, List></span>
+        
+<span class="param-type">Object.&lt;string, List></span>
+
+
     </dd>
 </dl>
-
-<div class="param-desc">
-    <p>Object with cached user lists where the key is
-the name of the list</p>
-</div>
-
 
     
 
 
 
 
-
-
-
-
-
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line136">line 136</a></div>
-
-
-</div>
 
         
             
 
-
     
 
-
-<div class="group" id="login">
-
-
-    <h4 class="name"><span class="type-signature"></span><b>login</b><span class="signature">(<span class="sig-params">options</span>)</span><span class="type-signature"></span></h4>
+    
+    <h4 class="name" id="login"><span class="type-signature"></span>login<span class="signature">(options)</span><span class="type-signature"></span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Authenticate with TickTick and store the session info for future calls.
-This method must be called <em>before</em> any other.</p>
+    Authenticate with TickTick and store the session info for future calls.
+This method must be called *before* any other.
 </div>
 
 
@@ -1115,88 +1978,231 @@ This method must be called <em>before</em> any other.</p>
 
 
 
-    <h5>Parameters</h5>
+    <h5>Parameters:</h5>
     
 
-<div class="params">
-    
-
-    
-        <span class="name">options</span><span class="type"><span class="param-type">:Object</span></span>
-    
-
-    
-
-    
-
-    <div class="description last"><p>Login options</p>
-        <div class="child-params">
-          
-
-<div class="params">
-    
-
-    
-        <span class="name"><span class="obj-tree">options.</span>email</span><span class="type"><span class="param-type">:Object</span></span>
-    
-
-    
-
-    
-        <span class="attributes">
+<table class="params">
+    <thead>
+    <tr>
         
-            (optional)<br>
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
         
 
         
 
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Login options
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
         
-        </span>
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
 
-    <div class="description last"><p>Object that must exist if the login is done via email</p>
-        <div class="child-params">
-          
+        <tr>
+            
+                <td class="name"><code>email</code></td>
+            
 
-<div class="params">
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Object that must exist if the login is done via email
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>username</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Your TickTick's account e-mail</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Your TickTick's account password</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
     
 
     
-        <span class="name"><span class="obj-tree">options.email.</span>username</span><span class="type"><span class="param-type">:string</span></span>
+
+    
+
+    
+
     
 
     
 
     
 
-    <div class="description last"><p>Your TickTick's account e-mail</p></div>
-
-    
-
-    
-        <span class="name"><span class="obj-tree">options.email.</span>password</span><span class="type"><span class="param-type">:string</span></span>
     
 
     
 
     
 
-    <div class="description last"><p>Your TickTick's account password</p></div>
+    
 
     
-</div>
-
-        </div>
-    </div>
 
     
-</div>
-
-        </div>
-    </div>
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line57">line 57</a>
+    </li></ul></dd>
+    
 
     
-</div>
+
+    
+
+    
+</dl>
 
 
 
@@ -1216,15 +2222,6 @@ This method must be called <em>before</em> any other.</p>
 
 
 
-
-
-
-
-
-<div class="src">Source: <a href="ticktick.js.html">ticktick.js</a>, <a href="ticktick.js.html#line57">line 57</a></div>
-
-
-</div>
 
         
     
@@ -1241,16 +2238,17 @@ This method must be called <em>before</em> any other.</p>
 
 </div>
 
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Authentication.html">Authentication</a></li><li><a href="module-Models.html">Models</a></li><li><a href="module-Services.html">Services</a></li><li><a href="module-TickTick.html">TickTick</a></li><li><a href="module-Utils.html">Utils</a></li></ul><h3>Classes</h3><ul><li><a href="Connection.html">Connection</a></li><li><a href="module-Models-List.html">List</a></li><li><a href="module-Models-Reminder.html">Reminder</a></li><li><a href="module-Models-Task.html">Task</a></li><li><a href="module-TickTick-TickTick.html">TickTick</a></li></ul>
+</nav>
+
 <br class="clear">
 
 <footer>
-    
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc 3.6.5</a> on 7/29/2020 using the <a href="https://github.com/Grafluxe/boxy-jsdoc-template" target="_blank">boxy-jsdoc-template</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Wed Jul 29 2020 18:02:55 GMT-0300 (Brasilia Standard Time)
 </footer>
 
-<script src="scripts/prettify/prettify.js"></script>
-<script src="scripts/prettify/lang-css.js"></script>
-<script src="scripts/script.js"></script>
-
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
 </body>
 </html>

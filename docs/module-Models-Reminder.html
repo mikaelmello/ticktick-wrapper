@@ -2,31 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Reminder - Documentation</title>
+    <title>JSDoc: Class: Reminder</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
+
 <body>
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <span class="navicon"></span>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Connection.html">Connection</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="Connection.html#_cacheMaxAgeInMinutes">_cacheMaxAgeInMinutes</a></li><li data-type='member'><a href="Connection.html#baseUri">baseUri</a></li><li data-type='member'><a href="Connection.html#cookieJar">cookieJar</a></li><li data-type='member'><a href="Connection.html#middlewares">middlewares</a></li><li data-type='member'><a href="Connection.html#requestDefault">requestDefault</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="Connection.html#addMiddleware">addMiddleware</a></li><li data-type='method'><a href="Connection.html#clearMiddlewares">clearMiddlewares</a></li><li data-type='method'><a href="Connection.html#removeMiddleware">removeMiddleware</a></li><li data-type='method'><a href="Connection.html#request">request</a></li></ul></li><li><a href="module-Models-List.html">List</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-List.html#._getAll">_getAll</a></li><li data-type='method'><a href="module-Models-List.html#addSimpleTask">addSimpleTask</a></li><li data-type='method'><a href="module-Models-List.html#getCompletedTasks">getCompletedTasks</a></li><li data-type='method'><a href="module-Models-List.html#getTodoTasks">getTodoTasks</a></li></ul></li><li><a href="module-Models-Reminder.html">Reminder</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Reminder.html#.TimeUnit">TimeUnit</a></li></ul></li><li><a href="module-Models-Task.html">Task</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-Models-Task.html#.Kind">Kind</a></li><li data-type='member'><a href="module-Models-Task.html#.Priority">Priority</a></li><li data-type='member'><a href="module-Models-Task.html#.Status">Status</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Models-Task.html#save">save</a></li><li data-type='method'><a href="module-Models-Task.html#update">update</a></li></ul></li><li><a href="module-TickTick-TickTick.html">TickTick</a><ul class='members'><li class='list-title'>Members</li><li data-type='member'><a href="module-TickTick-TickTick.html#_conn">_conn</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCache">_listsCache</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#_listsCacheLastUpdate">_listsCacheLastUpdate</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Inbox">Inbox</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#List">List</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#lists">lists</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Reminder">Reminder</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#Task">Task</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#tasks">tasks</a></li><li data-type='member'><a href="module-TickTick-TickTick.html#user">user</a></li></ul><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-TickTick-TickTick.html#_checkListsCache">_checkListsCache</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#_setUserInfo">_setUserInfo</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#changeCacheMaxAge">changeCacheMaxAge</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#createReminder">createReminder</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getListByName">getListByName</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#getLists">getLists</a></li><li data-type='method'><a href="module-TickTick-TickTick.html#login">login</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-Authentication.html">Authentication</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Authentication.html#~assertLogin">assertLogin</a></li><li data-type='method'><a href="module-Authentication.html#~loginEmail">loginEmail</a></li><li data-type='method'><a href="module-Authentication.html#~loginFacebook">loginFacebook</a></li><li data-type='method'><a href="module-Authentication.html#~loginGoogle">loginGoogle</a></li><li data-type='method'><a href="module-Authentication.html#~loginTwitter">loginTwitter</a></li></ul></li><li><a href="module-Models.html">Models</a></li><li><a href="module-Services.html">Services</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Services.html#~getUncompleted">getUncompleted</a></li></ul></li><li><a href="module-TickTick.html">TickTick</a></li><li><a href="module-Utils.html">Utils</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-Utils.html#~formatDate">formatDate</a></li><li data-type='method'><a href="module-Utils.html#~validateCache">validateCache</a></li></ul></li></ul>
-</nav>
-
 <div id="main">
-    
-    <h1 class="page-title">Reminder</h1>
-    
+
+    <h1 class="page-title">Class: Reminder</h1>
 
     
 
@@ -36,20 +27,9 @@
 <section>
 
 <header>
-    <span class="creds">
-      
-
-      
-    </span>
-
-    <hr>
-
     
-        <h2>
-            <span class="ancestors"><a href="module-Models.html">Models</a>~</span>
-        
-        Reminder
-        </h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>
+            <span class="ancestors"><a href="module-Models.html">Models</a>~</span>Reminder<span class="signature">(propertiesOrQty, unit)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -59,23 +39,20 @@
     
         
 
-
     
 
-
-<div class="group" id="Reminder">
-
-
-    <h4 class="name"><span class="type-signature"></span>new <b>Reminder</b><span class="signature">(<span class="sig-params">propertiesOrQty<span class="params-divider">, </span>unit</span>)</span><span class="type-signature"></span></h4>
+    
+    <h4 class="name" id="Reminder"><span class="type-signature"></span>new Reminder<span class="signature">(propertiesOrQty, unit)</span><span class="type-signature"></span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Class that represents a Reminder used when creating a <code>Task</code>. The reminder
-will go off at {propertiesOrQty} {units} before the date set for the <code>Task</code>. Or at  the
-specified {propertiesOrQty.trigger}.</p>
+    Class that represents a Reminder used when creating a Task. The reminder
+will go off at {propertiesOrQty} {units} before the date set for the Task. Or at  the
+specified {propertiesOrQty.trigger}.
 </div>
 
 
@@ -86,132 +63,254 @@ specified {propertiesOrQty.trigger}.</p>
 
 
 
-    <h5>Parameters</h5>
+    <h5>Parameters:</h5>
     
 
-<div class="params">
-    
-
-    
-        <span class="name">propertiesOrQty</span><span class="type"><span class="param-type">:Object|Number</span></span>
-    
-
-    
-
-    
-
-    <div class="description last"><p>Properties of the <code>Reminder</code> or the quantity of
-time before the start date in which the reminder will trigger</p>
-        <div class="child-params">
-          
-
-<div class="params">
-    
-
-    
-        <span class="name"><span class="obj-tree">propertiesOrQty.</span>id</span><span class="type"><span class="param-type">:string</span></span>
-    
-
-    
-
-    
-        <span class="attributes">
+<table class="params">
+    <thead>
+    <tr>
         
-            (optional)<br>
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
         
 
         
 
-        
-        </span>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
 
-    <div class="description last"><p>Object ID of the Reminder, only defined when this is an
+        <tr>
+            
+                <td class="name"><code>propertiesOrQty</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Properties of the Reminder or the quantity of
+time before the start date in which the reminder will trigger
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Object ID of the Reminder, only defined when this is an
 instantiation of a pre-existing reminder. On new reminders this must be empty in order
-to generate a new ObjectID</p></div>
+to generate a new ObjectID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>trigger</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Custom trigger in the pre-defined format
+/^TRIGGER:-?PT[0-9]+[SMHD]$/</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>unit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Reminder.TimeUnit</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Unit of time</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
 
     
 
     
-        <span class="name"><span class="obj-tree">propertiesOrQty.</span>trigger</span><span class="type"><span class="param-type">:string</span></span>
+
+    
+
+    
+
     
 
     
 
     
-        <span class="attributes">
-        
-            (optional)<br>
-        
-
-        
-
-        
-        </span>
-    
-
-    <div class="description last"><p>Custom trigger in the pre-defined format
-/^TRIGGER:-?PT[0-9]+[SMHD]$/</p></div>
 
     
-</div>
 
-        </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="reminder.js.html">reminder.js</a>, <a href="reminder.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     </div>
 
     
 
     
-        <span class="name">unit</span><span class="type"><span class="param-type">:Reminder.TimeUnit</span></span>
-    
-
-    
-
-    
-
-    <div class="description last"><p>Unit of time</p></div>
-
-    
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="src">Source: <a href="reminder.js.html">reminder.js</a>, <a href="reminder.js.html#line19">line 19</a></div>
-
-
-</div>
-
-    
-    </div>
 
     
 
     
 
     
-
-     
 
     
 
@@ -220,93 +319,196 @@ to generate a new ObjectID</p></div>
 
         
             
-
-<div class="group" id=".TimeUnit">
-
-<h4 class="name"><span class="type-signature">(static, readonly) </span>TimeUnit<span class="type-signature">:Number</span></h4>
+<h4 class="name" id=".TimeUnit"><span class="type-signature">(static, readonly) </span>TimeUnit<span class="type-signature"> :Number</span></h4>
 
 
 
 
 <div class="description">
-    <p>Enum for the time unit used in the creation of a reminder</p>
+    Enum for the time unit used in the creation of a reminder
 </div>
 
 
 
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Number</span>
 
 
-    <h5 class="subsection-title">Properties</h5>
+        </li>
+    </ul>
 
-    
 
-<div class="props">
-    
 
-    
-        <span class="name">SECONDS</span><span class="type"><span class="param-type">:Number</span></span>
-    
 
-    
 
-    
-
-    <div class="description last"><p>Used when the reminder is set in seconds</p></div>
+    <h5 class="subsection-title">Properties:</h5>
 
     
 
-    
-        <span class="name">MINUTES</span><span class="type"><span class="param-type">:Number</span></span>
-    
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-    
+        <th>Type</th>
 
-    
+        
 
-    <div class="description last"><p>Used when the reminder is set in minutes</p></div>
+        
 
-    
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-    
-        <span class="name">HOURS</span><span class="type"><span class="param-type">:Number</span></span>
-    
-
-    
-
-    
-
-    <div class="description last"><p>Used when the reminder is set in hours</p></div>
-
+    <tbody>
     
 
-    
-        <span class="name">DAYS</span><span class="type"><span class="param-type">:Number</span></span>
-    
+        <tr>
+            
+                <td class="name"><code>SECONDS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Used when the reminder is set in seconds</td>
+        </tr>
 
     
 
+        <tr>
+            
+                <td class="name"><code>MINUTES</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Used when the reminder is set in minutes</td>
+        </tr>
+
     
 
-    <div class="description last"><p>Used when the reminder is set in days</p></div>
+        <tr>
+            
+                <td class="name"><code>HOURS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Used when the reminder is set in hours</td>
+        </tr>
 
     
-</div>
+
+        <tr>
+            
+                <td class="name"><code>DAYS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Used when the reminder is set in days</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="reminder.js.html">reminder.js</a>, <a href="reminder.js.html#line47">line 47</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
 
 
-
-
-
-
-
-
-
-<div class="src">Source: <a href="reminder.js.html">reminder.js</a>, <a href="reminder.js.html#line47">line 47</a></div>
-
-
-</div>
 
         
     
@@ -325,16 +527,17 @@ to generate a new ObjectID</p></div>
 
 </div>
 
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Authentication.html">Authentication</a></li><li><a href="module-Models.html">Models</a></li><li><a href="module-Services.html">Services</a></li><li><a href="module-TickTick.html">TickTick</a></li><li><a href="module-Utils.html">Utils</a></li></ul><h3>Classes</h3><ul><li><a href="Connection.html">Connection</a></li><li><a href="module-Models-List.html">List</a></li><li><a href="module-Models-Reminder.html">Reminder</a></li><li><a href="module-Models-Task.html">Task</a></li><li><a href="module-TickTick-TickTick.html">TickTick</a></li></ul>
+</nav>
+
 <br class="clear">
 
 <footer>
-    
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc 3.6.5</a> on 7/29/2020 using the <a href="https://github.com/Grafluxe/boxy-jsdoc-template" target="_blank">boxy-jsdoc-template</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Wed Jul 29 2020 18:02:55 GMT-0300 (Brasilia Standard Time)
 </footer>
 
-<script src="scripts/prettify/prettify.js"></script>
-<script src="scripts/prettify/lang-css.js"></script>
-<script src="scripts/script.js"></script>
-
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
 </body>
 </html>
