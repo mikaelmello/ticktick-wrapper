@@ -10,9 +10,12 @@ const main = async () => {
       password: process.env.EMAIL_LOGIN_PASSWORD,
     },
   });
-  const compras = await ticktick.getListByName('Compras');
+  const lists = await ticktick.lists.getAll();
+  console.log(lists);
+  const tasks = await ticktick.tasks.getUncompleted();
 
-  console.log(await compras.getTodoTasks());
+  console.log(lists);
+  console.log(tasks.map(t => t.title));
 };
 
 main();
